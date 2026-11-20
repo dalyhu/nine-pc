@@ -1,0 +1,37 @@
+.user-tab-component {
+  padding: 0 12px;
+  height: 100%;
+  .status-list {
+    padding-top: 8px;
+    li {
+      flex: 1;
+      background: #f0f2f5;
+      height: 30px;
+      line-height: 30px;
+      margin-right:8px;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 14px;
+      color:#303133;
+      &:last-child {
+        margin-right:0;
+      }
+      &.isLight {
+        color:#d02d54;
+        background: #faeaee;
+      }
+    }
+  }
+
+  .user-tab-content {
+    overflow-y: auto;
+    height: 100%;
+  }
+  .mask-loading {
+    height: calc(100% - 86px);
+    :deep(.el-loading-mask) {
+      z-index: 1;
+    }
+  }
+}

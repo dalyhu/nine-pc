@@ -1,0 +1,100 @@
+.item-left,
+.current-tips-dialog,.del-content {
+  .text {
+    font-weight: 550;
+  }
+  .level-status {
+    height: 20px;
+    padding: 0px 4px;
+    border-radius: 20px;
+    margin-right: 4px;
+    background-color: rgba(55, 196, 142, 0.15);
+
+    .sender-exp {
+      color: #fff;
+      font-weight: 700;
+      padding-left: 4px;
+      color: rgb(55, 196, 142);
+    }
+
+    &.level-2 {
+      background-color: rgba(76, 194, 255, 0.15);
+      .sender-exp {
+        color: rgb(76, 194, 255);
+      }
+    }
+    &.level-3 {
+      background-color: rgba(255, 145, 75, 0.15);
+      .sender-exp {
+        color: rgb(255, 145, 75);
+      }
+    }
+    &.level-4 {
+      background-color: rgba(193, 120, 255, 0.15);
+      .sender-exp {
+        color: rgb(193, 120, 255);
+      }
+    }
+    &.level-5 {
+      background-color: rgba(255, 106, 106, 0.15);
+      .sender-exp {
+        color: rgb(255, 106, 106);
+      }
+    }
+    &.level-6 {
+      background-color: rgba(108, 149, 255, 0.15);
+      .sender-exp {
+        color: rgb(108, 149, 255);
+      }
+    }
+    &.level-7 {
+      background-color: rgba(255, 93, 154, 0.15);
+      .sender-exp {
+        color: rgb(255, 93, 154);
+      }
+    }
+    &.level-8 {
+      background-color: rgba(255, 165, 29, 0.15);
+      .sender-exp {
+        color: rgb(255, 165, 29);
+      }
+    }
+    &.level-9 {
+      background-color: rgba(230, 68, 107, 0.15);
+      .sender-exp {
+        color: rgb(230, 68, 107);
+      }
+    }
+    &.level-10 {
+      background-color: rgba(255, 2, 0, 0.15);
+      .sender-exp {
+        color: rgb(73, 16, 33);
+      }
+    }
+  }
+}
+
+.close-images {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.text-style {
+  margin-bottom: 8px;
+  font-weight: 550;
+  display: block;
+}
+.reason-style {
+  color: #d02d54;
+  display: block;
+  font-size: 12px;
+}
+.loading-center {
+  text-align: center;
+}
+.block-ban-cus {
+  font-size: 12px;
+}

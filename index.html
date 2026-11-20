@@ -1,0 +1,435 @@
+<!doctype html>
+<html data-theme="1">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="pragram" content="no-cache" />
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PC</title>
+    <!--
+      浏览器兼容兜底（必须放在所有脚本之前，且只能用 ES5 写法：它要在不支持的浏览器里也能执行）
+      1. 检测：浏览器缺少本站必需、又无法用 polyfill 补齐的能力 → 展示「浏览器版本过低」页，main.js 不再初始化应用
+      2. 兜底：检测通过但启动阶段报错或超时、页面一直空白 → 展示「页面加载失败」页（应用后来渲染出来会自动关闭）
+      两种页面都带「复制诊断信息」，方便用户发给客服。支持范围见根目录的 browser-support.json
+      data-x9-compat 标记：构建后的产物检查（scripts/dist-check.mjs）会按 ES5 检查这段脚本
+    -->
+    <script data-x9-compat>
+      ;(function () {
+        // 样式放在脚本里插入：写成 <style> 会被 Vite 合并进 CSS 包，再被 purgeCss（只扫描 .vue）当作无用样式删掉
+        var CSS = [
+          '#x9-compat{position:fixed;top:0;right:0;bottom:0;left:0;z-index:2147483647;overflow:auto;background:#f7f7f8;font-family:\'PingFang SC\',\'Microsoft Yahei\',sans-serif;color:#333;-webkit-font-smoothing:antialiased}',
+          '#x9-compat .x9c-card{box-sizing:border-box;width:560px;max-width:calc(100% - 32px);margin:10vh auto 40px;padding:40px 48px 32px;background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(208,45,84,.08);text-align:center}',
+          '#x9-compat .x9c-logo{display:block;width:160px;height:auto;margin:0 auto 28px}',
+          '#x9-compat .x9c-badge{display:inline-block;margin-bottom:16px;padding:4px 12px;border-radius:999px;background:#facbce;color:#b72b4a;font-size:12px}',
+          '#x9-compat h1{margin:0 0 12px;font-size:24px;font-weight:600;color:#222}',
+          '#x9-compat .x9c-desc{margin:0 0 24px;font-size:14px;line-height:22px;color:#666}',
+          '#x9-compat .x9c-current{margin:0 0 24px;padding:12px 16px;border-radius:8px;background:#fafafa;font-size:13px;line-height:20px;color:#666;text-align:left}',
+          '#x9-compat .x9c-current b{color:#d02d54;font-weight:600}',
+          '#x9-compat .x9c-browsers{display:flex;justify-content:space-between;margin:0 0 28px}',
+          '#x9-compat .x9c-browsers a{position:relative;display:block;width:31%;box-sizing:border-box;padding:16px 0 14px;border:1px solid #f0d5d9;border-radius:10px;color:#333;font-size:15px;font-weight:500;text-decoration:none}',
+          '#x9-compat .x9c-browsers a:hover{border-color:#d02d54;color:#d02d54}',
+          '#x9-compat .x9c-browsers a.x9c-rec{border-color:#d02d54;background:#fff7f8;color:#d02d54}',
+          '#x9-compat .x9c-browsers small{display:block;margin-top:4px;color:#999;font-size:12px;font-weight:400}',
+          '#x9-compat .x9c-rec-tag{position:absolute;top:-1px;right:-1px;padding:0 8px;border-radius:0 10px 0 8px;background:#d02d54;color:#fff;font-size:11px;font-weight:400;line-height:18px}',
+          '#x9-compat .x9c-actions{display:flex;justify-content:center}',
+          '#x9-compat button{margin:0 8px;padding:10px 24px;border-radius:999px;font-size:14px;cursor:pointer;outline:none}',
+          '#x9-compat .x9c-primary{border:1px solid #d02d54;background:#d02d54;color:#fff}',
+          '#x9-compat .x9c-primary:hover{background:#b72b4a;border-color:#b72b4a}',
+          '#x9-compat .x9c-ghost{border:1px solid #d02d54;background:#fff;color:#d02d54}',
+          '#x9-compat .x9c-copied{min-height:20px;margin-top:12px;font-size:12px;line-height:20px;color:#999}',
+          '#x9-compat .x9c-copied.x9c-done{color:#d02d54}'
+        ].join('')
+
+        // __X9_MIN_XXX__ 在构建时由 vite.config.ts 按根目录的 browser-support.json 替换，与实际支持范围保持一致
+        var MIN_TEXT = 'Safari __X9_MIN_SAFARI__、Chrome __X9_MIN_CHROME__、Edge __X9_MIN_EDGE__、Firefox __X9_MIN_FIREFOX__ 及以上版本'
+        var errors = []
+        var shown = false
+        var overlay = null
+        var overlayStyle = null
+        var titleBefore = ''
+        var fallbackTitle = ''
+        // 启动兜底的计时器；应用运行中出现致命错误（showError）时全部清掉，避免兜底页被「应用已渲染」自动关闭
+        var startupTimers = []
+        var runtimeError = false
+        // 诊断信息里不带这些地址栏参数（登录凭证等），避免用户把它们发给客服
+        var SENSITIVE_PARAMS = /^(token|userId|fingerprintId)$/i
+
+        // 只保留最近 10 条，运行期的报错通常比启动期的更有用
+        function record(msg) {
+          errors.push(msg)
+          if (errors.length > 10) errors.shift()
+        }
+
+        function errorText(err, source) {
+          var text = err && err.message ? (err.name ? err.name + ': ' : '') + err.message : String(err)
+          if (err && err.stack) {
+            var where = String(err.stack).split('\n').slice(1, 4).join(' | ').replace(/\s+/g, ' ')
+            if (where) text += ' @ ' + where
+          }
+          return '[' + (source || 'app') + '] ' + text
+        }
+
+        function safeHref() {
+          var href = location.href
+          var hash = ''
+          var h = href.indexOf('#')
+          if (h >= 0) {
+            hash = href.slice(h)
+            href = href.slice(0, h)
+          }
+          var q = href.indexOf('?')
+          if (q < 0) return href + hash
+          var parts = href.slice(q + 1).split('&')
+          var kept = []
+          for (var i = 0; i < parts.length; i++) {
+            var name = parts[i].split('=')[0]
+            try {
+              name = decodeURIComponent(name)
+            } catch (e) {}
+            if (parts[i] && !SENSITIVE_PARAMS.test(name)) kept.push(parts[i])
+          }
+          return href.slice(0, q) + (kept.length ? '?' + kept.join('&') : '') + hash
+        }
+
+        // 本站必需、且 polyfill 补不了的能力（缺的 API 由构建期 polyfill 补齐，这里只查补不了的）
+        // 这组检测项的判断边界 = Safari 13.1 / iOS 13.4 / Chrome 80 / Edge 80 / Firefox 74，与根目录的 browser-support.json 一致
+        function detectMissing() {
+          var missing = []
+          try {
+            new Function('var a = {}; return a?.b ?? 1')() // 可选链、空值合并：Safari 13.1 / Chrome 80 / Firefox 74 起
+          } catch (e) {
+            // CSP 禁止 eval 时抛的不是 SyntaxError，无法判断，按支持处理，避免误伤正常用户
+            if (e && e.name === 'SyntaxError') missing.push('ES2020 语法')
+          }
+          if (!('noModule' in document.createElement('script'))) missing.push('ES Module')
+          if (typeof Proxy === 'undefined') missing.push('Proxy')
+          if (typeof Promise === 'undefined') missing.push('Promise')
+          if (typeof fetch !== 'function') missing.push('fetch')
+          if (typeof ResizeObserver === 'undefined') missing.push('ResizeObserver')
+          if (typeof IntersectionObserver === 'undefined') missing.push('IntersectionObserver')
+          return missing
+        }
+
+        function browserName() {
+          var info = window.UA_INFO && window.UA_INFO.browser
+          if (info && info.name) return info.name + ' ' + (info.version || '')
+          // ua-parser 没加载成功时，只认几种主流浏览器，不把整串 UA 展示给用户
+          var ua = navigator.userAgent
+          var m = ua.match(/Edg\/([\d.]+)/)
+          if (m) return 'Edge ' + m[1]
+          if ((m = ua.match(/Firefox\/([\d.]+)/))) return 'Firefox ' + m[1]
+          if ((m = ua.match(/Chrome\/([\d.]+)/))) return 'Chrome ' + m[1]
+          if ((m = ua.match(/Version\/([\d.]+).*Safari/))) return 'Safari ' + m[1]
+          return '未知浏览器'
+        }
+
+        function diagnostics(kind, missing) {
+          var title = '页面加载失败'
+          if (kind === 'outdated') title = '浏览器版本过低'
+          else if (kind === 'runtime' || runtimeError) title = '页面运行出错'
+          var lines = [
+            '问题：' + title,
+            '时间：' + new Date().toString(),
+            '页面：' + safeHref(),
+            '浏览器：' + browserName(),
+            'UA：' + navigator.userAgent
+          ]
+          if (missing && missing.length) lines.push('缺少能力：' + missing.join('、'))
+          var start = Math.max(0, errors.length - 5)
+          for (var i = start; i < errors.length; i++) lines.push('报错' + (i - start + 1) + '：' + errors[i])
+          return lines.join('\n')
+        }
+
+        function copyText(text, done) {
+          function fallback() {
+            var ta = document.createElement('textarea')
+            ta.value = text
+            ta.setAttribute('readonly', '')
+            ta.style.position = 'fixed'
+            ta.style.top = '-1000px'
+            document.body.appendChild(ta)
+            ta.select()
+            var ok = false
+            try {
+              ok = document.execCommand('copy')
+            } catch (e) {}
+            document.body.removeChild(ta)
+            done(ok)
+          }
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(function () {
+              done(true)
+            }, fallback)
+          } else {
+            fallback()
+          }
+        }
+
+        function render(kind, missing) {
+          if (shown || !document.body) return
+          shown = true
+          var outdated = kind === 'outdated'
+          var style = document.createElement('style')
+          style.appendChild(document.createTextNode(CSS))
+          document.head.appendChild(style)
+          overlayStyle = style
+          var box = document.createElement('div')
+          overlay = box
+          box.id = 'x9-compat'
+          box.innerHTML =
+            '<div class="x9c-card">' +
+            '<img class="x9c-logo" src="/static/images/download/x9logo-theme-light.png" alt="小9直播">' +
+            // 加载失败多数刷新就能解决，文案保持轻描淡写：不用「失败」「抱歉」等字眼，也不加红色标签
+            (outdated ? '<div class="x9c-badge">浏览器版本过低</div>' : '') +
+            '<h1>' + (outdated ? '升级浏览器，观看更流畅' : '页面没有加载出来') + '</h1>' +
+            '<p class="x9c-desc">' +
+            (outdated
+              ? '为了给您更好的观看体验，建议您升级到最新版浏览器。<br>推荐使用谷歌浏览器（Chrome），点击下方即可前往官网下载。'
+              : '可能是网络不太稳定，刷新一下就好。') +
+            '</p>' +
+            // 当前浏览器、支持版本和浏览器下载只在「版本过低」时展示；加载失败多为网络或发版问题，换浏览器解决不了，
+            // 浏览器信息仍会写进「复制诊断信息」
+            (outdated
+              ? '<div class="x9c-current">当前浏览器：<b id="x9c-browser"></b><br>本站支持：' + MIN_TEXT + '</div>' +
+                '<div class="x9c-browsers">' +
+                '<a class="x9c-rec" href="https://www.google.cn/chrome/" target="_blank" rel="noopener"><span class="x9c-rec-tag">推荐</span>Chrome<small>谷歌浏览器 · 体验最佳</small></a>' +
+                '<a href="https://www.microsoft.com/zh-cn/edge/download" target="_blank" rel="noopener">Edge<small>微软浏览器</small></a>' +
+                '<a href="https://www.mozilla.org/zh-CN/firefox/new/" target="_blank" rel="noopener">Firefox<small>火狐浏览器</small></a>' +
+                '</div>'
+              : '') +
+            '<div class="x9c-actions">' +
+            (outdated ? '' : '<button type="button" class="x9c-primary" id="x9c-reload">刷新页面</button>') +
+            '<button type="button" class="x9c-ghost" id="x9c-copy">复制诊断信息</button>' +
+            '</div>' +
+            '<div class="x9c-copied" id="x9c-copied">' +
+            (outdated ? '遇到问题？复制诊断信息发送给客服，我们会尽快为您处理' : '刷新后仍打不开？可以复制诊断信息发给客服') +
+            '</div>' +
+            '</div>'
+          document.body.appendChild(box)
+          titleBefore = document.title
+          fallbackTitle = outdated ? '小9直播 - 请升级浏览器' : '小9直播'
+          document.title = fallbackTitle
+          var browserEl = document.getElementById('x9c-browser')
+          if (browserEl) browserEl.appendChild(document.createTextNode(browserName()))
+          var reload = document.getElementById('x9c-reload')
+          if (reload) {
+            reload.onclick = function () {
+              location.reload()
+            }
+          }
+          document.getElementById('x9c-copy').onclick = function () {
+            copyText(diagnostics(kind, missing), function (ok) {
+              var tip = document.getElementById('x9c-copied')
+              tip.className = 'x9c-copied x9c-done'
+              tip.innerHTML = ok ? '已复制，请粘贴发送给客服' : '复制失败，请截图本页面发送给客服'
+            })
+          }
+        }
+
+        // 关闭兜底页（只用于「页面加载失败」：应用只是慢，后来又渲染出来了）
+        function hide() {
+          if (runtimeError) return
+          if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay)
+          if (overlayStyle && overlayStyle.parentNode) overlayStyle.parentNode.removeChild(overlayStyle)
+          // 应用期间可能已经按路由改过标题，只在标题还是兜底页的标题时才还原
+          if (document.title === fallbackTitle) document.title = titleBefore
+          overlay = overlayStyle = null
+          shown = false
+        }
+
+        function onReady(fn) {
+          if (document.readyState !== 'loading') fn()
+          else document.addEventListener('DOMContentLoaded', fn)
+        }
+
+        // 记录启动阶段的报错（脚本报错、JS/CSS 文件加载失败、未处理的 Promise 异常），供兜底判断和诊断信息使用
+        window.addEventListener(
+          'error',
+          function (e) {
+            var t = e.target
+            if (t && t !== window && (t.tagName === 'SCRIPT' || t.tagName === 'LINK')) {
+              record('资源加载失败：' + (t.src || t.href))
+            } else if (e.message) {
+              record(e.message + (e.filename ? ' @ ' + e.filename + ':' + e.lineno + ':' + e.colno : ''))
+            }
+          },
+          true
+        )
+        window.addEventListener('unhandledrejection', function (e) {
+          var r = e.reason
+          record('未处理的 Promise 异常：' + (r && r.message ? r.message : String(r)))
+        })
+
+        // 应用运行中出现致命错误、页面已经空了（App 或 Layout 渲染失败）时，由 main.js 调用：展示「页面加载失败」并保持显示
+        function showError() {
+          runtimeError = true
+          for (var i = 0; i < startupTimers.length; i++) {
+            clearTimeout(startupTimers[i])
+            clearInterval(startupTimers[i])
+          }
+          startupTimers = []
+          onReady(function () {
+            render('error')
+          })
+        }
+
+        // 给应用（src/utils/pageError.js、错误页组件、main.js）用：记录错误、取诊断信息、复制、整页兜底
+        window.__X9_FALLBACK__ = {
+          record: function (err, source) {
+            record(errorText(err, source))
+            try {
+              window.console.error('[' + (source || 'app') + ']', err)
+            } catch (e) {}
+          },
+          diagnostics: function (kind) {
+            return diagnostics(kind || 'runtime')
+          },
+          copyText: copyText,
+          showError: showError
+        }
+
+        var missing = detectMissing()
+        if (missing.length) {
+          window.__X9_UNSUPPORTED__ = true
+          var showOutdated = function () {
+            render('outdated', missing)
+          }
+          onReady(showOutdated)
+          // 保底：主程序卡住时 DOMContentLoaded 不会触发；render 只生效一次，重复调用无影响
+          setTimeout(showOutdated, 3000)
+          return
+        }
+
+        // 检测通过但启动失败的兜底。从本脚本执行时就开始计时，不挂在任何页面事件上：
+        // 主程序（module 脚本）卡住时 DOMContentLoaded 不会触发，有资源迟迟加载不完时 load 也不会触发
+        // 到点时如果 body 还没解析出来，render 会跳过，由下一次检查兜住
+        // - 10 秒：应用仍未渲染、且期间有报错 → 展示「页面加载失败」
+        // - 20 秒：应用仍未渲染，即使没有捕获到报错（如主程序或某个请求一直不返回）也展示
+        // - 30 秒：再检查一次，兜住 20 秒时 body 还没解析出来的极端情况
+        // - 展示之后应用又渲染出来了（只是慢）→ 自动关闭兜底页
+        function appRendered() {
+          var app = document.getElementById('app')
+          return !!(app && app.children.length)
+        }
+
+        function checkStartup(requireError) {
+          if (runtimeError || shown || appRendered()) return
+          if (requireError && !errors.length) return
+          render('error')
+          if (!shown) return
+          var timer = setInterval(function () {
+            if (appRendered()) {
+              clearInterval(timer)
+              hide()
+            }
+          }, 1000)
+          startupTimers.push(timer)
+        }
+
+        startupTimers.push(
+          setTimeout(function () {
+            checkStartup(true)
+          }, 10000),
+          setTimeout(function () {
+            checkStartup(false)
+          }, 20000),
+          setTimeout(function () {
+            checkStartup(false)
+          }, 30000)
+        )
+      })()
+    </script>
+    <script src="/static/assets/ua-parser.min.js"></script>
+    <script src="/static/assets/tablet-profile.js"></script>
+    <script>
+      ;(function () {
+        window.UA_INFO = new UAParser(window.navigator.userAgent).getResult()
+        const qs = queryStringToObject(window.location.search)
+        const channelCode = qs.channel_code || qs.channel || qs.c
+        const path = window.location.pathname
+        const pathStrs = path.split('/')
+        const urlInviteCode = qs.invite_code
+        const type = pathStrs[1]
+        const uid = pathStrs[2] || qs.uid || qs.id
+        let url = window.location.origin
+
+        if (channelCode) localStorage.setItem('channel', channelCode)
+        if (urlInviteCode) localStorage.setItem('urlInviteCode', urlInviteCode)
+
+        const X = window.X9Tablet
+        const tablet = !!X && X.isTablet(window.UA_INFO, navigator)
+        if (tablet) document.documentElement.setAttribute('data-tablet-pc', '')
+        const switchTarget = tablet ? X.takeSwitchTarget() : null
+        const scoped = tablet && X.inScope('pc', path)
+        // TP-116：用户点了「切换移动版」（一次性 h5 标记）时任何页面都去 H5；没有标记时仍只在生效页面自动分流
+        const tabletToH5 = tablet && (switchTarget
+          ? switchTarget === 'h5'
+          : scoped && X.recommend(innerWidth, innerHeight) === 'h5' && X.canAutoRedirect())
+
+        if (window.UA_INFO.device.type === 'mobile' || tabletToH5) {
+          const userId = qs.userId
+          const token = qs.token
+          url += '/m'
+
+          if (type === 'about-user') {
+            url += '/protocol/privacy'
+          } else if (/^download$/i.test(type)) {
+            url += '/download'
+          } else if ((type === 'room' || path === '/live') && uid) {
+            url += `/live/detail?id=${uid}&sharingFromShortLink=1`
+          } else {
+            url += '/live/idx'
+            if (token && userId) {
+              url += `?token=${token}&userId=${userId}`
+            }
+          }
+        } else {
+          if ((type === 'room' || path === '/m/live/detail') && uid) {
+            url += '/live?uid=' + uid
+          } else {
+            return
+          }
+        }
+
+        if (channelCode) {
+          const prefix = url.includes('?') ? '&' : '?'
+          url += prefix + 'channel_code=' + channelCode
+        }
+
+        if (urlInviteCode) {
+          const prefix = url.includes('?') ? '&' : '?'
+          url += prefix + 'invite_code=' + urlInviteCode
+        }
+
+        if (tabletToH5 && !switchTarget) X.recordAutoRedirect()
+        location.replace(url)
+
+        function queryStringToObject(qs = '', separator = '&') {
+          const search = qs.trim().replace(/^\?+/, '')
+
+          if (!search) return {}
+
+          return decodeURIComponent(search)
+            .split(separator)
+            .reduce((res, str) => {
+              const kv = str.split('=')
+              const key = (kv[0] || '').trim()
+              const value = kv[1] || ''
+
+              if (key) res[key] = value
+
+              return res
+            }, {})
+        }
+      })()
+    </script>
+    <link rel="shortcut icon" href="/static/icons/favicon.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

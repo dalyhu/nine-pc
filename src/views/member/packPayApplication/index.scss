@@ -1,0 +1,36 @@
+.demo-form-inline {
+  text-align: right;
+  padding: 0 20px;
+
+  ::v-deep(.el-form-item) {
+    margin: 15px 10px 10px 0;
+
+    .el-select {
+      width: 220px;
+    }
+
+    .el-form-item__label {
+      font-weight: 700 !important;
+    }
+  }
+}
+
+.pack-pay-content {
+  height: 580px;
+  overflow: hidden;
+
+  .user-tab-content {
+    height: 480px;
+    padding: 0 16px;
+    overflow-y: scroll;
+  }
+
+
+
+  .pagination {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+  }
+}

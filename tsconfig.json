@@ -1,0 +1,28 @@
+{
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "allowJs": true,
+    "types": ["element-plus/global.d.ts", "auto-imports.d.ts", "components.d.ts"],
+    "typeRoots": ["types/*.d.ts"],
+    "lib": ["ESNext", "DOM", "WebWorker"]
+  },
+  "include": [
+    "src/**/*.vue",
+    "element-plus/global.d.ts",
+    "auto-imports.d.ts",
+    "components.d.ts",
+    "types/*.d.ts"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,347 @@
+@use './variables.scss' as *;
+
+// light theme
+html:root {
+  --demo-color: #ffffff;
+  --el-primary-background-color-9: #facbce;
+  --el-primary-background-color: #d02d54;
+  --el-primary-border-color: #d02d54;
+  --el-color-block: #000000;
+  --el-text-color-white: #ffffff;
+  --el-overlay-extra-light: rgba(0, 0, 0, 0.5);
+  --el-borer-color: #dcdfe6;
+  --el-disabled-bg-color: #f5f7fa;
+  // default var
+  --max-layout-width: 2560px;
+  --min-layout-width: 996px;
+  --fontFamily-PingFangSC: PingFang SC, 'sans-serif';
+  --fontFamily-PingFangHK: PingFang HK, PingFang SC, 'sans-serif';
+  --fontFamily-Yahei: Microsoft Yahei, sans-serif;
+  --fontFamily-SourceHanSansCN: 'Source Han Sans CN', \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, sans-serif;
+  --el-fill-color-light: #fafafa;
+  --el-fill-color-darker: #e6e8e8;
+  --el-warning-background---el-color-warning-9: #fcf6ec;
+  --el-warning-text-color-2: #b88230;
+  --el-error-background-color-8: #fde2e2;
+  --el-primary-text-color-2: #b72b4a;
+  --el-primary-border-color-7: #e77985;
+  --el-icon-color-regular: #606266;
+  --el-icon-color-primary: #303133;
+  --el-hover-background-color: rgba(249, 243, 244, 0.3);
+  --el-bg-color: #fff;
+  --el-text-color-regular: #606266;
+  --x9-logo-background-image-url: url('/static/images/download/x9logo-theme-light.png?v=1');
+  --el-primary-text-color: #D02D54;
+  //赛况统计主题
+  --el-table-text-color: #999;
+  --el-table-background-color: #f7f7f8;
+  --el-table-primary-color: #333;
+  --el-text-color-write: #fff;
+}
+
+// dark theme
+html.dark:root {
+  --demo-color: #000000;
+  --el-primary-background-color-9: #40181d;
+  --el-primary-background-color: #d02d54;
+  --el-primary-border-color: #d02d54;
+  --el-fill-color-light: #1d1e1f;
+  --el-warning-background---el-color-warning-9: #292218;
+  --el-error-background-color-8: #412626;
+  --el-icon-color-regular: #cfd3dc;
+  --el-icon-color-primary: #e5eaf3;
+  --el-hover-background-color: rgba(65, 38, 38, 0.35);
+  --el-borer-color: #4c4d4f;
+  --el-disabled-bg-color: #262727;
+  --el-warning-text-color-2: #ebb563;
+  --el-bg-color: #141414;
+  --el-text-color-regular: #cfd3dc;
+  --x9-logo-background-image-url: url('/static/images/download/x9logo-theme-dark.png');
+
+  //赛况统计主题
+  --el-table-text-color: #fff;
+  --el-table-background-color: #0a0a0a;
+  --el-table-primary-color: #fff;
+}
+
+html[data-theme='1'] body {
+
+  /* 弹窗按钮 */
+  .el-message-box__wrapper {
+
+    .el-message-box__headerbtn:focus .el-message-box__close,
+    .el-message-box__headerbtn:hover .el-message-box__close {
+      color: var(--el-color-primary);
+    }
+  }
+
+  .el-message-box__btns {
+    .el-button--primary {
+      background-color: var(--el-color-primary);
+      border-color: var(--el-color-primary);
+    }
+  }
+
+  .authDialog-container {
+    .el-button--primary {
+      background: none;
+      border: 0;
+    }
+  }
+
+  .el-loading-spinner i {
+    color: var(--el-color-primary);
+    font-size: 30px;
+  }
+
+  .el-input__inner:focus {
+    outline: none;
+    border-color: #fbd9e1;
+  }
+
+  .el-textarea__inner:focus {
+    outline: none;
+    border-color: #fbd9e1;
+  }
+
+  #newMsgNotificationAudio {
+    opacity: 0;
+    pointer-events: none;
+    z-index: -1;
+    position: fixed;
+  }
+
+  /* 顶部搜索-弹窗 */
+  .top-s-popover {
+    background: url('/static/images/theme/top-s-popover_bg.png') no-repeat bottom center / 100% 100% !important;
+  }
+
+  /* --- 下载 */
+  .anchor-home-left-nav .live-group .live-group-item-yellow {
+    background-image: url('/static/images/theme/download_btn_bg.png');
+  }
+
+  /* --- 做主播 */
+  .anchor-home-left-nav .live-group .live-group-anchor {
+    background-image: url('/static/images/theme/apply_anchor_btn.png');
+  }
+
+  .anchor-home-left-nav .live-group .live-group-item:hover .live-group-item-anchor,
+  .anchor-home-left-nav .live-group .live-group-item.live-group-item-active .live-group-item-anchor {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABUUExURUdwTOnCjfTUreW9gN+zcOzIlu7Km9qsYunCi+7IkdyuZerFkPvgxPrewuG4efTUrujBi+W+hPbYtuzImOrFkd+0cvHRqN2xa+7LnuO7fvDOovrdv+7wtNYAAAAOdFJOUwC4m0PrVuX9fhqq1tXSIfRDSwAAAVRJREFUSMftlVmChCAMBdsFjTqDMtpu3P+ewyLyiNygm++qkJBEX6/v+ajTlb9a6z97xnFc1/U8z32f57kpRI4X2uKa8VZYlqXIxNfuXPyY8tNED6FEfnUXAD9NHRd+0viMV6qyWRBFj10QElqCQAY/pOxRyDzQfYEiUUsp3zUXLD82omQJqcMcLsQCzJOIBgp2grQ8CpCQe8PSCTfv4qPgWnYV4B+9GjAhz6MQO7aGLhHGfxth2zYUAn/ebe0Ky98FMCF2DOagwIQM36bC1YFUiAWkAozcLVQD40HAEYpF84TaRAj8Hp6V89YAIY4Q+Qd68G1yA4yoGw3WMcsnKeHONOTDq0M53ras9heggDu5wMj5+FTVTyHZSVaASZMMHxeoCXxmRI3Q+hXt44qW147FfFTSscdHoNvZjqUdo8yHDHZMTawDff5TOeTj1734/kg+8/wDmzNFM8H5GpkAAAAASUVORK5CYII=);
+  }
+
+  .anchor-home-left-nav .live-group .live-group-item:hover .live-group-item-saicheng,
+  .anchor-home-left-nav .live-group .live-group-item.live-group-item-active .live-group-item-saicheng {
+    background-image: url('/static/images/theme/home_left_nav/saicheng_active.png');
+  }
+
+  .anchor-home-left-nav .live-group .live-group-item:hover .live-group-item-bangdan,
+  .anchor-home-left-nav .live-group .live-group-item.live-group-item-active .live-group-item-bangdan {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABjUExURUdwTOa+g/TUrvHQpOO5e+vGlOK4efrWp+S7f+vDjOW8f/TUrevHlea+hOK5evncvPHPpfTVr+3JmuzIleK4eeS8gOa/h+3JmujCjPPTq/HPperEkO/NoPXWsuvHlfjaud+zcKhAVEIAAAAUdFJOUwCv2EZ94YoI3BxAb8hgydySrfUoI5DmLwAAAdBJREFUSMftlcu2oyAQRUFQBJX4AI2JGv//K7tARUwwbY96rbtuTTLIPif1ooLQb/xTZC8bo4ke4gExDEPXdXUWFNw++GHhuy4/FRzsV/9umuKvgv7oP03TMyBgjN0+0l/9QQBfH+u1+Y/bD6z5rPj0fD7v9zYvgv0J+Rv+3rYt9bK/VVW12RtBTbKVX+wxxrFOPYFpdLSUa+slqHH5gL1BqSeIXpUTPBae5V46VoC1dILyNUITIscXlo95Nq3pg4BpnTgBGUdiBTb/B/CV4VGxlQsCobXYhzCO5SIw7YF6DN+gJrb5LIJEK28U1RgZge0/SMtuqhvEHW/KlQr7g+t7jqKl/yXwXS1WvjU8CLhS3uAQ7/vMCmBaQ2x5lu88CAqluL8bVR+RyK1nTY68TkWq5GGZSO+v8xuvtFLHjMwoPD5HDPv+BlfJ+36TLHfPhRx4EEgqAg+IfKyn8xfBF8dqb/19f5WenI1y9b+/+c/JiYDXwXzUzM8uEw3zxekpg+4HePzl+Pn7s/Ep/3Yueb6s585L/v3AMnzoj8LsrzdZyN1fiktnvKHYTAvT5vrpTwLb9t8F83VBQSmV8yzho7jCC9P/La60lae7IOU/8u//D4TwUBzBlA3hAAAAAElFTkSuQmCC);
+  }
+
+  .anchor-home-left-nav .live-group .live-group-item:hover .live-group-item-follow,
+  .anchor-home-left-nav .live-group .live-group-item.live-group-item-active .live-group-item-follow {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABaUExURUdwTPbXs/HPpPjZuPbXtPLQpuC2denDju3IkOK3dufBieG2dvLPpPfZtuzHlt6ybufAiOS8geO5fOjCjeG3dt+zcPLRqe7LnuvHlfjauerFke3JmfDOo/XWsmDPozQAAAAQdFJOUwCqwlTofbxLF3Kh2y/H5PFbJC/CAAABeUlEQVRIx+2V25KDIAyGQUEOHmpVrNr6/q+5QWSFFLfdm53ZmeaS+ZL8ORgJ+di/t4qymdU0P15ynTVTo0Uar2ewFYxx98Kb2/0+TcuyZNUzn8+eX8eRSkIkvXm+b3txws8WB8sIyQ6+b9sWeUgWJhgfI+eOn3b+epWRA3U4FYLZBA+wg3cOOkrg4tv+ZI6/Yf7aSVTBavmK7jjw95jvFFYEhfJxPBwiHhyKwKG25eak8vKf4gMfOTDrsCU45YeuDBy2+dqCnZyEnm4YhjCDbb+U7BHqdwNov/kwQ72NK+YjPWAmrIGv4xr1Z9r5I74ZwrZWK+7ngvQbY6KNrVF8rB/4Il7WzSGM36P4Bq1rhhYCx0cJoIpYTx/Xa8xF4i9IJBfOxzeJz5qfDgBMpa6Afm6o53X6zOiz+PrsMPHkwNJ6nCnEmxc89KoBvPV6tn6Kn8+lLPaGDi5BIV9eWBXov6h3brIsPP9G+L2S0vKl+MXlV2WpPv+/P7QvzXVHPuh63dsAAAAASUVORK5CYII=);
+  }
+
+  .anchor-home-left-nav .live-group .live-group-item:hover .live-group-item-yuyue,
+  .anchor-home-left-nav .live-group .live-group-item.live-group-item-active .live-group-item-yuyue {
+    background-image: url('/static/images/theme/home_left_nav/yuyue_active.png');
+  }
+
+  .anchor-home-left-nav .live-group .live-group-item:hover .live-group-item-all,
+  .anchor-home-left-nav .live-group .live-group-item.live-group-item-active .live-group-item-all {
+    background-image: url('/static/images/theme/home_left_nav/all_active.png');
+  }
+
+  .anchor-home-left-nav .live-group .live-group-item:hover .live-group-item-football,
+  .anchor-home-left-nav .live-group .live-group-item.live-group-item-active .live-group-item-football {
+    background-image: url('/static/images/theme/home_left_nav/football_active.png');
+  }
+
+  .anchor-home-left-nav .live-group .live-group-item:hover .live-group-item-basketball,
+  .anchor-home-left-nav .live-group .live-group-item.live-group-item-active .live-group-item-basketball {
+    background-image: url('/static/images/theme/home_left_nav/basketball_active.png');
+  }
+
+  .anchor-home-left-nav .live-group .live-group-item:hover .live-group-item-game,
+  .anchor-home-left-nav .live-group .live-group-item.live-group-item-active .live-group-item-game {
+    background-image: url('/static/images/theme/home_left_nav/game_active.png');
+  }
+
+  .anchor-home-left-nav .live-group .live-group-item:hover .live-group-item-more,
+  .anchor-home-left-nav .live-group .live-group-item.live-group-item-active .live-group-item-more {
+    background-image: url('/static/images/theme/home_left_nav/more_active.png');
+  }
+
+  .anchor-home-left-nav .live-group .live-group-item:hover .live-group-item-text,
+  .anchor-home-left-nav .live-group .live-group-item.live-group-item-active .live-group-item-text {
+    color: var(--el-color-primary);
+  }
+
+  .player_container {
+    .mute_btn {
+      background: rgba(208, 45, 84, 0.8);
+    }
+  }
+
+  /* 直播间分享的弹窗里面的复制链接按钮 */
+  .play-header-live-share .url-content .btn {
+    background: var(--el-color-primary);
+  }
+
+  /* 积分榜 和 头条榜 */
+  .integral-group-container {
+    .nav {
+      .active {
+        color: var(--el-color-primary);
+
+        &::after {
+          background: none;
+          background-color: var(--el-color-primary);
+          height: 2px;
+          width: 10px;
+        }
+      }
+    }
+
+    .series_list {
+      .series_name {
+        position: relative;
+
+        &.active,
+        &:hover {
+          color: var(--el-color-primary);
+        }
+
+        &.active {
+          &::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 1px;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            background: var(--el-color-primary);
+          }
+        }
+      }
+    }
+  }
+
+  /* 直播间扫码下载弹窗 */
+  #appQRCode {
+    img {
+      margin: 0 auto;
+    }
+  }
+
+  .pin-info.pin-generally.pin_info_panel {
+    display: flex;
+    align-items: flex-start;
+    height: auto;
+    padding: 10px;
+
+    >i {
+      font-size: 16px;
+      color: #c41d48;
+      flex-shrink: 0;
+      margin-right: 4px;
+    }
+
+    >div {
+      flex: 1;
+    }
+  }
+
+  /* 分页按钮 */
+
+  .el-pagination.is-background .el-pager li:not(.disabled).active {
+    background: var(--el-color-primary);
+  }
+
+  .el-pagination.is-background .el-pager li:not(.disabled):hover {
+    color: var(--el-color-primary);
+
+    &.is-active {
+      color: #fff;
+    }
+  }
+
+  /* scoreBoard - 足球、篮球、电竞 */
+  .layout_score_board {
+    #header-filter {
+      .buttons-wrap {
+
+        .left-button.active,
+        .left-button:hover {
+          background: var(--el-color-primary);
+          color: #fff;
+        }
+      }
+
+      .header-filter-right {
+        &-tools-wrap {
+          .search {
+            .search-main {
+              border: 1px solid var(--el-color-primary);
+            }
+          }
+        }
+      }
+    }
+
+    .header-date-filter {
+
+      .date-button.active,
+      .date-button:hover {
+        color: var(--el-color-primary);
+      }
+    }
+  }
+
+  /* scoreBoard - 足球、篮球、电竞 - 其他设置(弹窗) */
+  .setting-popover-content {
+    .setting-header {
+      background: var(--el-color-primary);
+      color: #fff;
+    }
+
+    .setting-content {
+      .setting-item {
+        .options {
+
+          .option-button.active,
+          .option-button:hover {
+            background: var(--el-color-primary);
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  /* 日期组件 */
+  .el-date-picker__header {
+    &-label:hover {
+      color: var(--el-color-primary);
+    }
+
+    .el-picker-panel__icon-btn:hover {
+      color: var(--el-color-primary);
+    }
+  }
+
+  .el-date-table {
+    td {
+
+      &.today span,
+      &.available:hover {
+        color: var(--el-color-primary);
+      }
+    }
+  }
+}

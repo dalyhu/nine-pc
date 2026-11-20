@@ -1,0 +1,105 @@
+.work-tab-component {
+  padding: 0 12px;
+  height: 100%;
+  overflow: hidden;
+  .status-list {
+    padding-top: 8px;
+    li { 
+      flex: 1;
+      background: #f0f2f5;
+      height: 30px;
+      line-height: 30px;
+      margin-right:8px;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 14px;
+      color:#303133;
+      &:last-child {
+        margin-right:0;
+      }
+      &.isLight {
+        color:#d02d54;
+        background: #faeaee;
+      }
+    }
+  }
+  .workban-tab-content {
+    overflow-y: auto;
+    height: 100%;
+    .work-online {
+      height: 100%;
+    }
+  }
+  .mask-loading {
+    height: calc(100% - 100px);
+    :deep(.el-loading-mask) {
+      z-index: 1;
+    }
+  }
+}
+
+.close-images {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.operation-details {
+  font-size: 14px;
+  .operation-max-width {
+    max-width: 50%;
+  }
+  .operation {
+    padding: 0 8px;
+    height: 30px;
+    line-height: 30px;
+    color: #848587;
+    background: linear-gradient(to right , #f2f5fc 50%, #fff);
+  }
+  .process-click {
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    background: #faeaee;
+    text-align: center;
+    cursor: pointer;
+    color: #d02d54;
+    font-weight: 550;
+    border-radius: 0px 0px 8px 8px;
+  }
+  .defin-result {
+    padding: 0 8px;
+    color: #848587;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    background: #eafaeb;
+    .remark {
+      max-width: 70%;
+    }
+    .status-value {
+      color: #38ca41;
+      font-weight: 550;
+    }
+    &.reject {
+      background-color: #faeaee;
+      .status-value {
+        color: #d02d54
+      }
+    }
+  }
+}
+.el-tooltip__popper {
+  max-width: 120px;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+.text-style {
+  margin-bottom: 8px;
+  font-weight: 550;
+  display: block;
+}

@@ -1,0 +1,33 @@
+.my-person-box {
+  width: 100%;
+  min-height: 636px;
+  background: #fff;
+  border-radius: 4px;
+  .my-person-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    border-bottom: 1px solid #d8ad66;
+    background-image: linear-gradient(to bottom, var(--white), var(--white)),
+      linear-gradient(to left, #eedac1, #faefe2 0);
+    .tab_item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 41px;
+      height: 100%;
+      background-repeat: no-repeat;
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+      user-select: none;
+     
+      &:hover {
+        color: #b08a5b;
+        font-weight: 700;
+      }
+    }
+  }
+}

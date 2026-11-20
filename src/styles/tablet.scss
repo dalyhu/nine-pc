@@ -1,0 +1,157 @@
+// 平板身份由入口设置；普通电脑和手机不进入此作用域。
+html[data-tablet-pc] {
+  // iPad Safari 的 100vh 按工具栏收起计算，比可视区高，外层文档会多出可滚动区域把顶部导航推出屏幕（TP-106）。
+  &,
+  body,
+  #app {
+    height: 100vh;
+    height: 100dvh;
+  }
+  body .nav_bar {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+  }
+  body .left_menu {
+    height: calc(100vh - 54px);
+    height: calc(100dvh - 54px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    &::-webkit-scrollbar { display: none; }
+    ul {
+      width: 100%;
+      li { width: 100%; min-height: 44px; }
+    }
+  }
+  .app_main_box.live-route { overflow-x: auto; }
+  body .live_chatter_popover { margin-top: 13px; }
+  body .el-popper .chatter_list_header .close_btn,
+  body .el-popper .ranking_list_header .close_btn {
+    width: 44px;
+    height: 44px;
+    padding: 14px;
+    box-sizing: border-box;
+    top: -6px;
+    right: -6px;
+    pointer-events: bounding-box;
+  }
+  .live_page_box {
+    min-width: 854px;
+    padding-left: 56px;
+    padding-right: 48px;
+    @media (max-width: 1080px) {
+      .live_room_header_box {
+        height: auto;
+        flex-wrap: wrap;
+        row-gap: 8px;
+        .live_room_header_left { width: 100%; }
+        .live_room_header_right {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .live_room_person { margin-bottom: 0; }
+        }
+      }
+    }
+    .container_box .live_box .chat_right {
+      min-width: 260px;
+      width: clamp(260px, calc(100vw - 594px), clamp(280px, 23vw, 480px));
+    }
+  }
+  // 主播公告卡片按宽度 25% 定高，平板聊天栏窄时装不下固定像素的内容；背景标签随宽度缩小后也装不下标题（TP-107）。
+  .room_notice_comp {
+    .df_container_placeholder { display: none; }
+    .df_container_inner { position: static; }
+    .room_notice_comp_inner_box {
+      padding-bottom: 6px;
+      background-size: max(100%, 439px) auto;
+      background-position: left top;
+    }
+  }
+  .chat_right {
+    .activities_title {
+      column-gap: 4px;
+      row-gap: 4px;
+      flex-wrap: wrap;
+      .button2 { margin-left: 0 !important; }
+    }
+    .guess_item_title {
+      .guess_title { flex: 1; min-width: 0; }
+      .rec_button { flex-shrink: 0; min-width: 94px !important; }
+    }
+    .football_match_box .btn_tab,
+    .basketball_game .btn_tab {
+      justify-content: flex-start;
+      overflow-x: auto;
+      .btn_box { flex-shrink: 0; }
+    }
+    .football_match_box .football_progress_box,
+    .basketball_game .football_progress_box {
+      overflow-x: auto;
+      > ul {
+        width: max-content;
+        min-width: 100%;
+        column-gap: 12px;
+        > li { flex-shrink: 0; }
+      }
+    }
+    .match_lineup {
+      overflow-x: auto;
+      > .df_container { min-width: 363px; }
+    }
+    .el-tabs__nav-prev, .el-tabs__nav-next { min-height: 44px; }
+  }
+  @media (max-width: 960px) {
+    .app-main .home-page .layout-adaptive,
+    .app-main .home-page .home-page-banner .home-page-banner-main.layout-adaptive.small,
+    .app-main .home-page .home-page-schedule-banner .inner-box {
+      width: calc(100% - 112px);
+      min-width: 0;
+    }
+    .app-main .home-page .home-page-hot-live .df_live_card_group {
+      min-width: 0 !important;
+    }
+    .app-main .home-page .main-footer .anchorRecommend {
+      max-width: calc(100vw - 112px);
+    }
+  }
+  .app-main .home-page .dfHgroup .operation-btn > button {
+    min-height: 44px;
+  }
+  .app-main .home-page .home-page-live-box .video-box
+    .player_container:not(.player-web-fullscreen) .anchor-home-page-top-play-area-enter-button {
+    display: block;
+  }
+}
+
+// 平板 PC 首页、直播间改为整页滚动（标记由 layout 按路由设置）：iPad Safari 退出视频全屏后，
+// 从播放器 iframe 开始的滑动交给整页而非内层 el-scrollbar，内层滚动容器收不到（TP-108）。
+html[data-tablet-page-scroll] {
+  &,
+  #app {
+    height: auto !important;
+    min-height: 100%;
+    overflow: visible !important;
+  }
+  // body 不用 !important：网页全屏时 body 上的行内 overflow: hidden 需要生效
+  body {
+    height: auto !important;
+    min-height: 100%;
+    overflow: visible;
+  }
+  .app-wrapper {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .app-wrapper > .el-scrollbar__wrap {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .app-wrapper > .el-scrollbar__bar { display: none !important; }
+  &[data-player-web-fullscreen] { overflow: hidden !important; }
+}

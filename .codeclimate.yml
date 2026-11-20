@@ -1,0 +1,24 @@
+version: "2"
+
+plugins:
+  sonar-php:
+    enabled: true
+    config:
+      tests_patterns:
+        - /test/
+    minimum_severity: critical
+  structure:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      count_threshold: 3
+      languages:
+        - javascript
+        - typescript
+  fixme:
+    enabled: false
+
+exclude_patterns:
+  - node_modules/
+  - public/

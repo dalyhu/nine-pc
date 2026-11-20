@@ -1,0 +1,100 @@
+@use './variables.scss' as *;
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin scrollBar {
+  &::-webkit-scrollbar-track-piece {
+    background: #d3dce6;
+  }
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #99a9bf;
+    border-radius: 20px;
+  }
+}
+
+@mixin relative {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin screen($width) {
+  @if $width == large {
+    @media only screen and (max-width: $width-large) {
+      @content;
+    }
+  } @else if $width == medium {
+    @media only screen and (max-width: $width-medium) {
+      @content;
+    }
+  } @else if $width == small {
+    @media only screen and (max-width: $width-small) {
+      @content;
+    }
+  }
+}
+
+/* 常用字体：*/
+@mixin fontStyle-Headline2-Medium {
+  /* medium/Headline2-Medium */
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+@mixin fontStyle-Headline3-Medium {
+  /* medium/Headline3-Medium */
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@mixin fontStyle-body1-Medium {
+  /* medium/body1-Medium */
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+@mixin fontStyle-body1-Regular {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+@mixin fontStyle-body3-Regular {
+  /* regular/body3-Regular */
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@mixin fontStyle-Headline1-Bold {
+  /* bold/Headline1-Bold */
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+@mixin fontStyle-Headline2-Bold {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+@mixin imageStyle-cover {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}

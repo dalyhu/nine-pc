@@ -1,0 +1,30 @@
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  variables:
+    DOCKER_BUILDKIT: '1'
+  script:
+    # 直接导出构建产物，避免 create/cp/rm 额外开销（与 x9-web-h5 一致）
+    - docker build --target export --output type=local,dest=./dist .
+  artifacts:
+    paths:
+      - dist
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "pretest"'
+    - if: '$CI_COMMIT_BRANCH =~ /^prod-.*$/'
+
+deploy:
+  stage: deploy
+  variables:
+    NGINX_ROOT: '/data_smb_mount/common/x9/public/pc/'
+  script:
+    - rm -rf ${NGINX_ROOT}/*
+    - cp -r ./dist/* ${NGINX_ROOT}/
+  dependencies:
+    - build
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "pretest"'
+    - if: '$CI_COMMIT_BRANCH =~ /^prod-.*$/'

@@ -1,0 +1,45 @@
+.message-tabs-component {
+  padding: 0 12px;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  .del-already {
+    margin: 8px 0;
+    height: 30px;
+    color: #d02d54;
+    background: #faeaee;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 4px;
+    width: 100%;
+  }
+  .mask-loading {
+    flex: 1;
+    width: 100%;
+    :deep(.el-loading-mask) {
+      z-index: 1;
+    }
+  }
+  .delete-scroll {
+    height: 100%;
+    overflow-y: auto;
+    width: 100%;
+  }
+  .del-content {
+    li {
+      margin-bottom: 8px;
+      border-radius: 8px;
+      padding: 8px 4px;
+      background-color: #f0f2f5;
+      font-size: 14px;
+      .level-status {
+        width: fit-content;
+        display: inline-block;
+      }
+      .del-username {
+        color: #025be8;
+        font-weight: 550;
+      }
+    }
+  }
+}

@@ -1,0 +1,1686 @@
+.highlight {
+  color: red !important;
+}
+
+.score-right-wrap {
+  position: absolute;
+  right: -35px;
+  top: 135px;
+}
+
+.basketball-score-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.basketball-score-item .header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 36px;
+  color: #9197ad;
+  font-size: 12px;
+  background-color: #eeeff2;
+}
+
+.basketball-score-item .header .time-status {
+  padding-left: 12px;
+}
+
+.basketball-score-item .header .modal-session {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #9197ad;
+}
+
+.basketball-score-item .header .modal-score {
+  display: flex;
+  align-items: center;
+}
+
+.baseball-league-name-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 36px;
+  background: #b4b4b4;
+}
+
+.baseball-league-name-container .league-name {
+  max-width: 80px;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.baseball-league-name-container .match-icon {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.baseball-league-name-container .nba {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMAMwUsKBIjHRUNGiAK0uncPAAAAq5JREFUSMed1zGT0kAUAOAHAS7JUdwjwJ1AEcbx1LkmcY65KywAOcfCAsZxLM5CLKyDNtqBvyD0V8A/AAstruHsdPxRZheyG5r3dm4peDt8hJfdlxcCAOW3cgzh+vb213cgh4tyVH2wxftnEve2uJWEM/klwpZwO46SOCeCLoHvdjhIcY3A6x1eJHFbJs+n7Il4KUMC4z0wDuWvmGN7G/k8jgHmhliuQWiGX37bqO3h8A8ZFYxwYxe+4bGuBifksf70lMfHejJhcUVPCixe6UmZxXFmFtJ4v34nNN6/MmYMDrKzOYMX+vRYrD/Lr324o/FxZpGH0KZxS0UjXIBF4yBznXehQONIpSy60gGNV5kGWYGiYRqW7Fw0btz4CjcBJmaFlA8RAdo0bqbREnEKBRpXMs03AJfG3cwZnoBjWEiHopfmaTxMo6JsjyGJ48wWXgE8NsPQq8uLhcJTFS67MnUKf9BH3shsgMC6oL+oiN9BuOaxPvszAxypXeGxLo6Sz+OGulbkzts+hb00tGuy+Cis/2I4OBUVQmNcqe789V3I4QeZGBmsWnTPBKfFNDPBaX20DbBaPdsEqy0PeazXY2SEva3IGWHs75o/j9WWuzzWhy7yWGddNsT4TMxMsReLhTbE8iY+NsX4EWDGY52IZYwxAIfDKyu6hDOc5kSFhAyOSlHH8cPYErjHYXfVsRbjPwWjIz+S2D7EKuSRwzcCvzhwEYcOi6cCD0o2YpfH0aIDTr3wFLHFp9GdduzfF9Y/xBp/gkGcpPEqF4s77JrDzzcJvhLL5sGMw5eQ4NdPNj2swojEIUYX0HE3/flinOA2+VAzxugcOlA8Gq0m2IQS+SA2x3MceIOwmrywAQd4Qj486pFAGwMC53t72PXIW9ZpBtfhYR/I8ffnJzU27yn5H0sZmhozT10ZAAAAAElFTkSuQmCC);
+}
+
+.baseball-league-name-container .cba {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMAMgguHyMMFhorJxMQ9JvHnQAABEVJREFUSMfdl8uvS1EUxrfT46i2A8tpb7UM6k0YaMXboOWWEAPHa3xq4Dkp8RgwQBDEwKl4DAzUI0QMKl6Ja3CRiPirrL12d/fDPr3GvsG99+z8urvWtx7tZbaOHTtWY/8i79e1k4DacHdmfmV/gQ9CpcEM7BcI4wiGCneMZX8D9HKgdGAMewqgUotA05VUNgsAjUByWw8faj8Pp9N86CMSzwbdi+OPU+B8HaDIMohWz9KLGaqww81uzEdwD2Op7CP0/FsRm9Puq9BlK+RDcL5eZKi1X3+64DlYBTqnW+tQifEle3hMDvobDOkVn/cK01bgS7gaf1tB5/PZcgFA+OY5DFVhtpbS+TpGrKWmDUfiOECLb9vwIts3POu1wpoPR9hiGw6tFDN4NB3sYzmsQXDDjmW/CbdCrK82AAcNeL7pRcVumDU6XmK6fJmwdv2JRNGx0Zx4Vft+yHx4sPv7qOQ7U4Iu7AFULUfJv7ggh8wZ9HIgis0FoeruWI4OqaznVxfmc1jqdazRVXOeUGGMrafpFc/2PZC0xHOj4VwzSkoOTAu4ugqepY39b9B0BD1JLDs6+LhdPrzX6UcM7UTdU/AZvi9G2SY6vY2xd/hrnoIxrp6oQ40y0PWEBejVhIITTNfbuQC7usKzjKyWWw2wQMH84Qz3hzeqeTWdJHorYQLc6mk+iEUzajpZbcIDnsWAw/CUBlLXMy/R4ZDVJcx9CRQoTpbqcDFLZRJQj7zUtbGgwxMZggtyT8wGU/ENDZ73jpojDyCittdHI1Bw9DRSMI1cJ30ZnGmChMUfRhxWb3z7JPZRYbSCyJeHH0FqnYIXHxeFDdS7XqU3+OGY2MwykZin3jVDC9HDXOzmn50TiKe2Sl644sNfYxWIQZ3HtM+/vghUXB1ae5G2g7ZlO/xZlqeow7OGRF8Zm+V9K6+e+PvmMmspY5EK5adjiPnZu6CkNVCJLxxarYX2g4G56oZpdLRp8urorlMi2HixPh8dtMcpQV3JCFAWv+yGfVFC1T/ci3eGvfYenZ83vpjMga6b/kaXeeZUX2244aywo6/TTb/kQmWlujReyuto2g3PpbplzM3lW3EYy7PsG3CV3XHDVPLQA0NPs80xUTcjaxddZOmFmbC+EvQKKTAfz4rvWBhutdAAe92mKkig3DGcrrF05ftw2mbTFRxsqGnZjOx4Hc9L23axf9Cq9v31W17g16D/TN65SdJ38bvLpqa+Hk2Dh/6GS2Uv0+dlysVyA7TkcNNP91zJr0cLE9n4YrOmjHdpCVetDrvwv7YW7AdY0k/p0axcVnX41D58OIEBAB+13gzwB7EHAA7dTKA6A/xRukHWNMfBp78Gt27d6pMbIe7AckqCJEY/W9yNl9dYx+leXlq3GkjcjZiOG86lSzorfe4iTIWtuBcBalNutBVFAFksj4M+PTV18TJbeZF0KWaTk1SQ65M7dOoPhNINY7a9+78AAAAASUVORK5CYII=);
+}
+
+.baseball-league-name-container .wnba {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACmWAJHAAAADHRSTlMAMxEIKiEuDBglFB67DanJAAACZUlEQVRIx5XUQY/SQBQH8D8WurRc9mGhVC7ImpB4muXAQS80qwdvbTRq4mUbjWeIFxIvEL8AxKwxnmj2C7DxC9oOHcNp+udd+pr+Mpl5814BXIyvAEzHOhawRkdkC6ApxzhYcSxSLveowoHNeiJ9nUgVWwt+ahbLKty14LT4Xj4ds3LPgssFFQDf4L4FSxF7ADMxUYMT4CJjcYiXsbA4QF4dLq3Hgs0Rf94QeFHh5JrAoxJJsFk/EHjv6sd3tSPwulO1RczgY89dQphtHB8DZMzKiP+sCqiYOh/wCZiRpUuwB9rFpn0Cz6sB62JXjx/rdCNDXNfjgU5zCdCux4EZR4V6HOopjMuCp/VdBz2Fv++BnMNQ+pS1WJk35oBD8+YQdZYb6PCZFtXl0P8DHrtC4S6PzX17HI503mKwEU0SqzJvkHhd5ksSJ7ovSHyr54rElzon8ba8bRbvAbRJ3NN3wmBzPo/Eh3Pw6BysQB/QjPeOw3udzzg8B8ytsDOInMIBzFzRLQqH7TpTDx6nLOa3MTeFpsfKic84oHfOwD4Iv2dfzvhvLFm8BpyMxJHSv0W+n3MSD3UtGGwKlzHYTFXMYNP6KYefAM2EPeAciHuqweFR2UJDrhoRkGZFLb72M/lSg/s/0Ro0vRcLZ4475FY8UEBaYH8xSu4n04YVb4GOlPhbkry9Wrl1uGnwj2c3dnwLJzMY75Udh2iJwX+f+1Ycd+H+xx8mKzew4DTEssCdTrvc82Tq9ix4GWKjW8krMD6iEVpwK9Rd//pN/CqKfsm7OIEl7gp8EhFs0Vbxie2vYY/xSSgb/AfPJZUZcML06gAAAABJRU5ErkJggg==);
+}
+
+.baseball-league-name-container .ncaa {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACmWAJHAAAADHRSTlMAMwQJGxIXKiUuHw25t8BDAAACmUlEQVRIx+2Wv2/TQBTHH3aSmmbJowm208VYQogtIUKsCVgiYzKUH1uKUCXE0gCqhLokon9AWySEmOJIDGwRI38d984Hzya2z7eUpZ/BN/jju++9s+8M1/wPwsFg8CCsYtrjC5S433s69wWpCv9JqWq9wQwnQUmEJf7Dl+J+Y8TK9iHmcJrvPsJc1nluHfNx8yoYYwGdbfceFjLcqsS8WO5W7phYFXas79rBUmYFpdAXpI7l+AEwfdSwAGapk28Dg1oCE3llIu+ZyJ6JjD0TeWUit0zkjonsmcgYmMgTE3loIh+byC0T+ZaJvGci75vInauQvTAMY/TFdYrdt2EA4XIdCu4jPqa2z3Ly+fblPjVqB0BcbOi6o177GywnhXHkjD9KCWxU+5or25ssJ4vZxJaQPoOk4Sm5reRU6b7SYHNvAg3RsfU6AMeXH9IuukMZh2X1uk5FvqZsKeQGLICayEytk15BV47lq23Sj6JlWxgiDSatk343ZLJaF4g7f17JqZCpPaQ459lqgNXhzZpSiGx10dpIcRYsJ8+teT1pdJK7NDkaYcjyAuwZQAA2VZig0Wm+lwCjZASWRc2OZXmVTPeOjsTDoj04EJP2gWVRWFlIhxZapsjS7LLsihp4shI9KjOlyGLvs9wmRa6LSG49owBZLH6a1jKW843f/e1L/IOl2hnLLUp6Tnm99K/KRB1OIhsPRZWjb4Gup6pjdbI2UD3E8lk0RvQjuuK3iHhK0ocoGolG3J6ZHBMmsgvMSL/DMDsGKcCufEYQ03L5MiM3Sl2/BxlG+ukxu5qzJ0us6bhian/DlrYg72Ebe67/A2Rq+SEmBn/bayjg5bb7CQp5XtklfmVU9xWUcvcHuyc90PFwPJe9nv2EK+Y3m8TK1Bc/s84AAAAASUVORK5CYII=);
+}
+
+.baseball-league-name-container .lba {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMAMiwGCR0iJg0pGBEVX5PwjQAAA/pJREFUSMfV17tv01AUBvAT7EBIGPjcJqlLh1weLdDFaQEhJgcCKnRJK0h4DQkRAcSSAKG8BgeJ91IjnmJJgYBoGdIgRHkMQTyEgD8KX4cs4Gt7QcA32FH0u87xudfyDf3xyOltfqn0DEC86c9OoDqbBep+8FblA0kvGeKatw3hJG03MXQWq7xxKkqvcdsgYqo3ZtMtnLHOwRWVvJcN4zPukZX56ZFeL5wEYnZP0IzEvPB7wP71pQqR6dWPChTimei3BmY8MNDXaWCPVdIKj+kDyvw8widwEQZdJ10G2nY1Kq8bwAWXuiOAZjewl+OeSwxRXbwwAH6qgd/bogTJDxET6SBsLHWmOsDLvyJcUSzGOF7SWUQ1u3Xb0e+MFWOG4xkYdq/tI+3ELUdcpyR0CmHAbqNCnbRED8Ji1O0mWwkOdJtfiAlmhSWo0Cmy1tu9s2U46ayvDASRGXvXKLE4EBs6/IWPuKg492/Zukq/lGWAuRKwPJTjRJKZECzSm1bF8lOAQ/AUiZLLBU8sUw6kxw+OHwJggqdqTaYAU5hxMU27TLAuXirCJDeOVD/yzryEnWH7yp5ZVuGF9/jDJE8CasIH3nBj9qBGDxHPOOPtzxfS6fTVt18b2RMMYIgZNKG0nbFcgQkV3ZhAXIswXVBGxKwAFdjpjOqjERLVHCnwSebpDtJlISa58HPiumPyJMYkPYRyAsAQOim7YeLzvO6++dMqujsm6VOXQs2QB7Yy3sievX+3NKeRAxbmf8CjneNo5840d8z41ylAsXomo88dg39dA+IqURCKH6x8n0SdAoDhA8cpjIz9nvOBsX8SBrE+1uMHQ7lNIZRnon7wSobmYtRT8IFVCiGRhJW2nxuUsHyC42lXrExl8ylMmcgj+nWW9bliwOwNAFCXIUM0H3PDualSqRgqnT7cDN7WiMLVf389Sws0pskkbyProFuH8dG04YwDtLQUvtNO1lMF/b2xr3j0aejON7PojBdR6nlgTG8kUjPNwXzOOJIIVvWLgjKSVFsIbCwPDsy/vhrtiQyXVi8+ru0kwZVP10obh84P76sd2nTw3JO1R1uLB9sWdn5bpaU0bSaSaJtEUkizPqQ1EmBRxDhkRB6HXhBdb1LIEx8pvjowMnnp0ZoMpepeeF/z2O6LrTdza9q0J+FZxnD1RetmcPaBLsUHuj0V4dzqQ+cuj1yfi5fDp3JkR2YJAZY1edR+w2rUTU3VyG/CyPu2UqXfeV/nlHnFIIcoTvvlayiSU0z192vswLBg+8zUX699BVHhPocpe3/ZycQ0EmsMfqSf4f/H1rt1WH4GDO1fSG8Ye5NjwHFyz5YKulljkGfGP5Wm7p8+PKfTX8kPXFPg9Olt30MAAAAASUVORK5CYII=);
+}
+
+.baseball-league-name-container .bbl {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACmWAJHAAAADHRSTlMAMioFGCQQDQkdFCH5pHW0AAAEYUlEQVRIx+2WyXMSQRjFnwxrvPANSwAvjCxRvAzg7gUTLVN6AWO0yhMx5XaDoFXGE0TLJV4gKS2TE8QkZeUUiHHLP2dPdwKkh0ly0ZO/w0DVfPOm3+vurwf/COXp9mSi1Pl0lNI1MghmTvoPrx0lwQvfXO4I0s86xPB9U4LugwtXb25UgNcaUWQN5TdbOIApYqg34G6Q/yHssdESLPGQ4ERJaYSWgG2PtUmlQLuoY0olBDg2CxOwwEE9ci5WrJy2hWBBgXpML7dYcpmxauVw4cWZzr2TOpSQK4CBXO2WqovPU7i6Ogz7qUph4NS4u7V3SqwW7jNTxdEZv2MYA7B1S8+342CcuxsYiWfqHQygwQfwSb9wXR0HpzM7k1POeHIDQiZGSp/vqMv6nuP6R6Y/MT149j67FwI30GV0tlxk+lWYSLO8zmqf0cM+kkiG2E9wUHAT9kARBm8fPeHCM7ntFR0omwetRYYSxgvnF0idvK2OMeE4bEt5QEmZUlZf3S4Bznbihg4drvYiE4aSNAofQMIem6sDH9RxvlHUO9k2Ewamytlby2ldDuNyhEn49VmNOOGLfAt6vmm/r2tFSLSqmEuxHbJHtWboKcmv54szskNnCJ6Iq7dIg65LeTCW3KRW5KTLJVfigkZdSlNbIcN3yE1kCjqFxnSDesJO8i0Zq2u8WCCSlb2e2Bz1KE6RvwZgxRYtE0ljVrwLl6nHsJMocEwHkq1hm7k4HLu6X5jIUYQzqgWGzMXqJdo3Ysa5JhwbRFlTMczCdKWJ9DmiZoGaUrFLEhbFa2mifIvkGTxG/RkTiTHfZ/+8NVN06X1RGKis2NcmCtpIl/e2SThgq7qjROR3qKYtKAvTiWO6/afx6wlDwikLU7iG4+vGcIZMa0ORhSn4ELb3xHB7zT1GEjYWUpo7yW5CpiYJUzSJBzxQvWpudZIwLfqwVObFMOGUhGk9iiRfA1WYKewXpis5xVewUEatX5gv56E8GVica/3CwQdwrBPDj0EU+oUpmkL6CjHyGESmX5jGvbieNiZQxyDchnCfP4wYYYRgQZ9wpMb8aYYNWEA9onGkXxr5wIq+zjEfxU5GGrHVSR9Jl5yxBtEErBmiXepx1B6zZ3AQl4gTOJ5X4hkK6ziQD2SQX9AzdS1cxSFc1ojCnphy2nH/SN+AJ5uNRyu5LI7I7cR3/Oevo2QFkDD1Z/UHUKZdEmOin6hy1+iio93rHqK9+gc00cndYv6GbX6Fk8y7VjNkxCPi5AqCd3TxhRo1f1tG+CMnxJHh5ZLDxjEmn5p23r777+eFpGgPVavDKifCUPmlys2qFsdg4As3KwiXIEZu9e08IswKJizDUN/yqzDrfyMsHzeHIZIX+YkwfCI/YbZubi4+kZ8wmxf5MbOm5ihiEvmJmW/yRzbRsAhjcY5LCrPvWsQogp/i2ayOHi3qUu0LQ5iVLRZoj6S4L9jiMytbXL1msLGxXgFckwY7O79uTgPOawId/4A/V94PDMNBT7EAAAAASUVORK5CYII=);
+}
+
+.baseball-league-name-container .wuhuan {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAABYBAMAAADW2s5ZAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMAMywECBMcKCQPIQwXczS7aQAAA/5JREFUWMPtVzlvE1EQNjhcMQWzATsEF6zNIUhjbgSNOSKuJkaIo8NFBEgUcUAChSYLEhJdgqCjsIUQlA4gcYiCQxTAn2LevON7b1+SgobGX5HNfjvv7cy8mW/WhQEGGOBfcOjGTG32V56deF1LZ6cakW2ttveXY0mwq++bFL9rdmw+WHnVsNaWNCpNz+YbGST+2ot51t6X4d1bchgDeyZi3f0Oa7OGPGxbkt0qVDJ16sCXnnLDhtAmxqtnF15kxJj3gkhevT/tsXrBFdlKsFZFPumytUWzGxU7L+xFy2LTREfQ4v8mPQealqVJzwHvRIZSomn1T4n5R5YtMbtdHjN7x7etF4AjnGR1XU00CnY/p1Nd1zHbgK1igSJv1dDezIXONLW/06Gtf+KLRNeZlZiBBaIuX9KQPYH9TQ5H+K/LtMv3ZjlUySlsmQX4fVUO1e4HtiyhTgdsimB1zividljzbcXucyzOBzfyXHEJGBNWo9ByLGz9flmttu45T8BOFtp5dh2zQUY4xanOBzCsUtwB69kCnMbKQ/QKjCr3kHbY+tk8SgJUDZo3YjcESw+TQdW3OW/ZncHSIb0UXRVbHQa7Z7m3FjMCHsHCQ3eZWE/K0wfntMY1An17MIFwowxLl0ozZ75ObbRsT653wnNFX1JH1w21A8HoGTaFM4wTqCZ+2XhGY1Jhl1ITyJAKO6NESuo2wUddrzj3g3Luw6wo7MIWKxi8vCrPNy1ItaCfUM319fxYclr1BYPZEXl/mZ8kXnVuhvI1W9ohpSgcSdcIRksfCuehzzt9hXbMoctLylCz9Y3iwBqOoGTUdJHZdaKONglNF+r2RVPiw2oL6R827TJbNhbJcRfsSX4VevKnLRcV6HiLKnIAE2SVhdk9HZObDY4Vo45/mNRTDnFsmfFMPKZU56moDl6xP1y91YOR9tUU1ragmvuy0uSXHl/7lAaFu6Ab5Ytckj5kmvHk+eWUrCtxu5TIw13MgYhduUnLK7FLScNZN/l9xTyWZ1N9lxMk2MTsLssOXX4zg4qEOiQ1KSlA18X9x5d8SmQ21spIV9ejiNF9eXEf1oJRDdlV6G+v55NoWjR4w9Fo/ISEnTY+FmTo5V/Sk72i+OcCIjOj9no4av2UoH625rI0gtGNBDAbIQs/FfZblagEUcCL5T8rOjrKtrFFEWN/35ex4K4sOm2ukTQAWhpe+uOnbiWo6/Jh1Tn2GJ351ElD2/vEdjMBgDSM6rUfw4/UUb32OyYRAGlIbjWL524Qw/8yTabeHXyRkehRhEgExqN5jUEHRI0cDtIPsWAAsVUl+pkhbB9khM9L/bgp4sfNStjwe2b37J88e+jmTDJ7q1EYYIAB/jf+AvU75vXrdOlVAAAAAElFTkSuQmCC);
+}
+
+.baseball-league-name-container .lnb {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMzAB0pLgUQJRgUDCEJwA9PyQAAAvpJREFUSMfl1L9vEmEYB/BHfhRCF78HB4UycKapQR2g2EWXV5NWU5deba0xDqWptel0NFqTTmA0YTyWGtIFFrW4gNrEJg7W6P/lXXkPGO6Oh9knIU/y5MPl8n2fewkT1H+OPzb3F9mYqBTSmThLB4J6TDwfrS40GzycndJuARs6CytR4KlBMRaeWQA+EUVHcPp6yb20mQXlDJm5wJMBzhbIo2rxaOL2uY5zc4DXyava8fCWoGl9ozvAOU+M0zNhtaIqBtig4909a3a4u39KR53WSqfT2bZRBPljsiqs0AAL0pG1ZhoAUUOiaE9nyQ4h98zGWmuIaQR3HQyDKIbu8pqgQJLcsdnHezp+EYXRpRuZvf2uB17t45yGBNEVWOzBG0EeOCFxESkrBcigPPCsxBXEiXqo+uK0xGVctQf+ONvHG4BJVIPpg1WgIaNTBVEZWz44DegSJ2kcVgBIjD9EbR/cQ0of4iTRBUw/XJZ4rg0IC+f8sCZxrmcvRwOGK1ZLpYKFiw6u2DhSFq7YRhYOO1izcfA5ueALB09JfKLb86WkLw4AiA/SKKd9cXCIH1s5+2PSHawWrLErzjeb9Xr1Yf0d/ajXc/evWWWQO/YsPcnHQXDxwU0R4OLXwFoMGRaO2EFXmDj85RypNvM1vhLVNoEZbhpaE4hzcfEMWOXiaXtTuZjuQSU2DiP9ioe/21mnNnm4bv0ayiwLh9btrz2tcPBBrGtjlXMoP1OP7FYBY/mj8loucnajDNEPmvHkO8jKoMfjI0CGMDUWrwDYktsxbkWDuvrtkGS92PbH0393aFgnLtizdibBrQlwpDoBjhoT4BWaAH9g4JDTWwwckH2qwMB3Zc8TA5vOp8XAIYljOQZ20n1PDLwsj0/hYJnu0ioDB+Xql6sMHBP9sCEY+KW8njM0HsvAQrrCwJ/lf5Bwx2J0K+VJNNByx8bI6f12bjBU3bE5nC12+10DDHecGl4ECsncAOGO1cHGaKbsgEruGNnta5c1j7eXPQ9P/A9rk/cXDCw/8wAAAABJRU5ErkJggg==);
+}
+
+.baseball-league-name-container .ecbbl {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACmWAJHAAAADHRSTlMAMysmGBAdIRQFCQ315VLDAAAEfklEQVRIx7XWz0/TYBzH8cdusnW77PPt1oJe+jxVJ3rZ0+pETkwRf5zEH4nGyyrGn5cNFQ1eQEVHvGxGo/MEatRwAk2Mxn/OpwORwJ6OxPi5vEvyypOmbcLYxpkXHkzNNdm29opDzW5vx74dHevoPdO9bRIoNuoAKBzpZU0Ji1sXPAkUqdd9v4TgeThfESDPD/Q4mFseShJ7Q6VnexydgOA4I4ET8PgEBmNxaCn4QwoU38Pbg/44m4kOFj8mvMAf5hiS+eUYbEACwaVQCHHkA46ETikGr4AjCBqhx4V4VPEe2/tjsLRAQfH6LJEQwe255DTprQkBz9s3sQJ4fuA/NI9hQYvTIHDaV28BJD3hPQeqWtwXYc+unwcghLSmgFLMw+DwuS2HAVjCpzLgxmGSsGWhDpAgMSSR02MxGdQVxiVfvRavOH9VDOrv+WZj7gscCWu00WhcnGteejqTWWpuhUkOZwfByocKd+b5h4GBWdCtLh89aAeHhfPrmJcFciGw5UtNQS0hFD60ion7NAW4dWx9JK0IfLIULuyrd7Dw6YZEjQNbvtTFCFxUmBfKHSyCoNyuYB5qziY8DrVbAKQ9FaoQ+UO/dt7Ga6hRN5yrS3j0rAKArPJn75sTpLS4f1GC5LfomoI57lXofkuLKUUc/Nw3DojDT1CsUzXUYvyEBN34ICCOfOc0JK029HhwloD97yWJ4bsI9iCfiMFOChKFFWEd+SzhH0OpEoMxI0k6OwQagCcq9A5xuJAAkcS0hMf7MfgyFmMkhCXvhwgkJh2Tx2M7K+n+RCAAa/LsV8RjDLPnq+dNne5DL4xb2cko+5tp3hvjDnv99NTlzv+h3hjFE0tLX64CsXjjJLaPCf8Ly23hExd4FL4dfJSxPhVCT/zwMbFPZ0akfWEodI7F40K2uT9D3F1ZuDJtuIvxuPShejo1aNQWzXp/YlnG42q7XTOqxkw4nNmT3Yl4XDsnBoy94RiJ5l1m9MD9rC+fhbRPsJ1glb9UdsMQHAtt00TRJ/OvtS/pnvNexs5Ns+R8CtHyiXkO+5kOozhps2dXl0JE22WMWq9oUosBNwU6OeY0pPXUfXn8VraOGFwdh83SI0uJksm+J5fNMA7PVFBIk1lOL4fLp1K5FuLwyDgGDMdc+tTkZ6eN0ngsdpNTbouyQjafMrdVi8d2kykxwiq1TLs07u6MxZIEqQgQ5wTy47CFTdPhe6Nj12+oXlOdiDoWgztXb9ZLLKPH1uplfa3SYUk9zrNsY67JVv60n6X0eDczAJe1/nSXqhYPsBaQY4u5qG6neuyyFdAyC6NaqiU2rsfVzlV6Q0M9nulcza73LJN6vLB2YnO90GNmBuWHjPmqwVDUjB5b6jCu7mFCFeoebrCkHudZH6RC9zrvYiaqHqt3QbAZO8gMRD2gqsU5ZrbbjKUHVJlqjkVLdseltSt3rat/93XH1ajmE9RWu/ZujO4Y5ANRBDZOh7G2f8JOl5+XUofzm7ABgOvw4CacASzodpZt2nv9LR9kW/bu42j3vdgsfwPQo0dr79KBjwAAAABJRU5ErkJggg==);
+}
+
+.baseball-league-name-container .nbl {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMAMwUjLh8nEhYaCQ0rNqk/QgAABVtJREFUSMe9l8lv00AUxh9O0yR2DzzqJARyMKEsQhwwEas44AJiPVCg7IcGEAKJQwpIgOCQsgq4JAgBRxeJnUPYEVwakBAC/ijemxl74sQpSEh8Uhs7/s3MN29eZp7hf6r04vPnzw//hjSveCh1svkn9p2HWqumRY27GNEmfxp2hAB7ze3npSUfrlWYzvnTsfY+B5SeukQPOj3gq/SsCrDkwt5vx8v3iTpDdDaefYxYcMC6h0onHFjsIf6IY9OCfdQWjdxlSNNtLcawy/4uYUS7IBNreynaVc1qej7il66F8/AIvMQu1WEc7c74vaJpL8BuFX2zhduirEXzoG8D2Rsx0GyY39n1JOZpPKEN+187wNFehyxy5+JwJBQeVtMyG05DqNQeYcRJ0l8kFLNhgh/coZsnN8srj664/5oun3nIwXBxGWi5WE9zt01K59D5hlvUeQXJcYL60uPhIDveIrrS4kwxXcRho4V6ivNw2OTFNq5jVPZBsCrU0yROhXAFm0sx61CKduk7pDysp7CgXWRhxG4aDYzRT1qrPLihjz4ctiicZzFWa+Et+vPCeExgdaDAiRGvnYY7lcG5CvaKcL2Zwl4q+kPD4OWCrM+DAyPYU3nDodGb0jLHJYHTqAYQmH7FN/xLfl2yEE+XxosPS6XS8+tonzbeqsyDJM5ilgw4kGRvdN0ga4ksyO8pthkUopVUkaYVElmU41HoOqngPupQTptD0SrKJclTOwXPa4OTGrYdaKAP0s1AAA/kFOyQhUII0+wmsc7PcQwmAjihYGMbhVTD5KOPMA5K3cAATis4lY/CRYrtTBG5ajqETQWnZ0s4jUrNNM+SLDh9IQxBzzy5bBu8zMK8CDO80vBxbSPV3vMsQwTazUFDw/fkoqRozEw7nAex+bYGoaLh9xI219NnG0xki597WfA0nJAwVClMGuaHFQWjhg2dG247bLNdADJOSbbk4ZCAQcPIcLGkFMJCA53wCMODoCRhr5AaHd1dXjPSCU8KG+Xy6OhouXxIwdlU6NkMYPMnQL+AA4HLg7SyZghnBKxWMBOdYIVg+qdDl3A0HM2NHDlg40VwA7i/puHocs+WgWggjIfwWC94jsGJRKTOuv5ZCrY6E2nMEik6Sfkcwtw6STMx50Y9M8MdzcCd4AUTLCgYxmQ0zDAYCVzPo+IYNAI4F8AOfXLLJ2dUhvaJLYn7HwpgZFgupdoSDAFPyX0LTGqWCmGfIFsli8gLadFX+wbvpsJHkeGabMGakI1klHlfJhHoQL9oLg+aAeEO3iBvKzwoX1jqdOO9xvDYxylEe+UvD4s3zl07xjEo7y7zsVjg4WZJb7jecJbiNKrzVjQm4BSNsNao9GYLYsNohmfK22aiJ2s3zbqBxfC0qtE6n+0FL4dxP4l5BQ/xObjccOPZzbykr3AqesJarTh2q2O15kALm/rsrg5g1rEqMZPjE72WQf0rnxRVwRYw93Sd8w5cRXahC58M5mCCnnSUz2gfAi71vnBVBKB97EwLf7owJ/SkLwpq2++PlK9DtC4NWX2C8XH3qY0bd6y47wMsclWNNBUt66oZWei/bi//ZfWV6CjsxmX5xfr64FOJ67rze4M1cXFOtB7WFWNU1MlClEHWatAc5scWG0YL892l9peY9LBrMK471q65fr7aCd/h0ncbdMryMOd3vKfYdyBFXztdMDvOOvAGtQabwOlShxhNCHrR4WBq+xxRim6HOBmufE+xru1eefzAbRr8WYt/U/HihLZXOeHtPbbi94B5VMLXXHxI9RQtoGZjZbl//dbGvs9okiz1wrRTT6GrffgLLfl87hy9w/6rfgNm004OMfpEOwAAAABJRU5ErkJggg==);
+}
+
+.baseball-league-name-container .nbb {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMAMwgjLhQMECsYHCcfh69PxAAAA99JREFUSMfd17vP0mAUBvCHUkAqQ98C4m0o3qMOVDSa6EC9xzgUE010AjVGt2K8xckvJrpS42CcZDDGxAE00bhBiIv+U563tQo9B3U0PslHGvh9h/OeXmjx72XXlXn72Nvbf0NvTVSS2hf3D7Q4U7+y8dlvbdk//85f4Id/Y/eqOpBXC3m60lpKtQCMFvWTFbZEDfTi/1nMVMYefZRu/EotlOxNRXGBcmPdUunNgi3En7wC+lsMtZT3HEfxB7bu3B0t4RrbORX1Az9QKjCXSx/P4h97bqi3xgX1+9IqzhbaaioHa7w0x06Mt6K7jDdynHSB9bT8SC1nLOAaKCbV8TN4k4CrWA+MpiirbHpSZQM4TMUZ7kg4yYjhzRyrZKBFxeOuwjsE3GJ4Y9oFzwaGt6QHNk91VeWJEpuWsS/hKVtgvGkoKR2Gh6txg+FHi9jnK+QYa5uxnfovOqDs9Ie6wIMaw0ljUR0GVTJs6AyCZNWuXLlfp1n/xGaCZ4GMm4QHMS6dnGJ9gD1ngagltzEgnIuxpR5p3Fcuuo+y2E4WSDjPsC3igiJcYtjJ4rgvS2Oc0Lj8C0eNLO4lU6LRYa6x8bKHXIDyaxpPQz6tZnWUcS0dXRQkZ0+dnd1xRnVYYSXFox94k4wjwi3E+KKr2yjdozZW4AFhgpkFrsB9wnVkR5fteSvS3W1V/4TTS0mOsGK4IbQRAus1DpKexwkGIkeYM42honFLY9wA1gUoXiVs8xPW6AAFje10zs0guT50+EWm5AB76qjQPijG2JjEuKxaGdygN+mvW2sfVOrDkeq83W5P1GN6PeqrYQaPgTyNb6Sk9DL4FC1nI+CJWLgU5Gika5KtMuzQSAMZNwTcVS0Zdxi2MaN3vb+6ihKcKFueRo/hMTzCXXF9DE8JdzAQ8AaOX2GNKvcFPJYw/U6L2BXaKFJ3UhubIeCyPvS60pQ5blX0T1bEcSjhvFI18Xd+Z1jqFXD3Arb9OpAIK8yEWUS22cld2+Lnzm5IsW1pzCrXXHxzTCd3fdhsuk9/Yj0NvsDjwOcz5iaN++7H9IB/BJ/21UAY8pnP5oekMtJbbH141rE+Y08DhjM3uzG+8PMmY1jS08izjulMf2E+6BPepxzC5fj7KvrF5He5hc7AfBgRdo0zoFzX+0PjTOX4amlVvR331zRG8hjg0SDinWLxO/P8Oe9OqHQbP3DJr6Gpd+1S5QPQWTdc9zyc3EzmHMdSH3z9vR5/msiF+YPh6Nr5SfNDehrsT4DwnGK5xcvu3m3v3hj3ez+favxl+wm/S8kTn63+/NR2yMWfs/vl/Gj76yX8V/kOiPIL7fBi3rQAAAAASUVORK5CYII=);
+}
+
+.baseball-league-name-container .kbl {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMAMwUtDxkVKSMKHCAlzmOlmQAAAitJREFUSMftVD1Pw0AMPUr5ZkmaJoF2CEIMwJIOwMJQWFlgZCMSP4B0YmyFxMJC2bIVfgHMLCD+GPbzFamKK10FE4qH64vv1Xf2s89UVtl/tb2v4xdX7oJHdu5I/mRy7MZdJapz6KGQfSfys5CbTuRcyJET2RNrzEp2v8bfJ7hlSzeLKFczyN0ybrbvGhh2lkeXZiZbpvBH94mUJyxt7xbFk6kVRYGvGuodE7vjeYGmxqZZIkYXn9soSs/UlDrCGZiM1gTfdZA38ZtOUmXT5zObhEfkuIDqmLIPbfTSRV4IRxR9XvppndaRln6fCV3GPfybzIhr0uA8z6gAwG1JwovQK4nWQKcdyXwLEuaY8hOlt9np7XB0wak0a8h5trU+jrZtlAuIlqE+A9Sn3GytZ4glWM4aqQKiwlwQixuI3J4uYITEgS25pwu4aEfvB3MWoVS7P2WaUmCJnLceoVX53VsX8qtge9s40QWcE3J/jJu4TF8XcGivMcYbaG1fFzAjp4gtatxgDVifWBMwHmvyxvesdaC2KmBOzox3BUdmzQNZFZDPPIHKgmVQAlXAFXYOOaLgVxlBf6qAKcoE3EikOikLGL8/TJLXONocJwa8UbfP47L2ss/zDhbgbiYkxhy7PFSPSxyecbgvgQPCaK/yUKFpbhhfd+wt4C8VjwoVodt8wuGbcA/hLxdvwC/VAnrC3A2Ee5DAXy4ehKrLiTlyu720fkxiZZVVVtlv7BtcXWwLTww87gAAAABJRU5ErkJggg==);
+}
+
+.baseball-league-name-container .lkl {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMAMy0OBAkpGxMjFyYfbtF8SQAAA+FJREFUSMftVsnvDEEUbvRvrAdfoRnmoNoy3EbGHCQObV8PzRgSHAyJ/WAII+JgJ04ziUjcJJYwcTAuljgQEST+KNVfV5VecZOIL5NKddVX773vvVeTcv7j72FTp9nsBH/CnHguQay88VvuQQmLY6Fa+FrOfQqIt5dGo8uvoLCo4UzBoIx7Dd45HeyGCwC8RgUvC5ktxX2X0LW9q9hjNArJM3bgc1rrEELUnUJMW/44s+L2JOYVk3vfwuzSLAn/ShF3+hL3dZCxPBYStSLy+8CZWk/bvooF24BBgeHI3YFqI5XIRaHTQzVPPs/xlvgUmFycjYqiqoIzTgnWwLvYCpyNbdUi9VDHUkZm5QjvnM4oEP6i79p3R6PrLfv9EYudP0YF8zMZvaNwIzbc2bOx40y7Mxr1+2u/9Pujm8j0x2QozNUhAsKRbFFEmP0Rh1LkXVBgaJOgsGB6fFk4DtZl8jGGwkNmisc4Yh3HcBa8FJmrnNH/Y37P4RHhTABXkq3MCCmPtArHM10AUSq6eJnVx86dyf0eD7uxvii0uYX61tE/+D0VEQ5Fiwuz+s7E5VLggID+0IjK4hXq46xL8/TH5akcNejPs0pFLC/2V3PYpo20vjl2Bn0Wpqwua5DUN9vOYnn0omVLvEzr+xDNujAItZeHJCe6NBZPfwYLdBahrc3O64v7R/sZmrJG07kpfQtsy5mj0GVl9ueZxpHcPqowtmTfP8VJ9UGEV3599IjnSTaDhuDPrkh4THin0+T3g+/9/mUkyBaWbPUJXs1EMtwew9kYodNjzFbfQttyni6nNLIpcG6ufuy2+zHZNDMxtEVhPge2OJtJZsq5zJTxfltKaC9XJSZP0suEPUWK+Pnnocmr7DJb9GFWH4M/pMn6spp8hVl93A91cyf1VSCS+l6alhP6JujLauxVk/p83x/MIkuTOXLGlKrR/hHSJfUv1mQGp8N21bLWZ8lXeTE0eQiNGvN1xurTZNbX3F4kyOuBIKHP7s/X5PkwqKqQrT7bwosYsiZ7CcsTYBtZRG0Y6LnbvHPn7uqmQcOpMOQ/RA8i+FPuFOa6FG672bzeMtZ2/yIK9/YrxDh9g98Si8q4+8dIv9UqwNL8o4dNuAY48ay10d3UftGN32pDiDDvfoUa9uLkz519il6dBSxz8lg1cHaK88mViR4g8oa5tfxu9vHkDiV8Gs5hh38vuzQTEFcKyVP9FVlnXQlZbLk5RR7JFZoxF2KGfJOM+CywooLSZ+4W1Br2sTQE6sGELC/21q54vTqatC8AOB5ltPaL15QiieWHeQGeUHapYbp/TuoJ9er+j38MPwBKM9yC4+y89QAAAABJRU5ErkJggg==);
+}
+
+.baseball-league-name-container .fiba {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABYBAMAAADxdE+xAAAAJ1BMVEUAAAADAwMDAwMTExMEBAQLCwsJCQkKCgoDAwMEBAQDAwMCAgIBAQFKjdSTAAAADXRSTlMAMy0HKgwTEBsmFyMfjBpFvwAAA1hJREFUWMPtlMtPE1EUxq/SigUXnKFQaLugI2xkUyxRURcdwETRxSCpxLApIlHDZhBN42NBJSYoLqxsBDYFNgY3bTQGXWF8BPWf8pzemXtnOjMtbEm/xbT33PnN/c5jhjXU0NFUUyqTyUwkD37//XfApbyfORAwB3b1b9clLmhQpbE6/p4A6cbrexOpzOSHz0AKZ2uZekF3/NZl4LlGKS35E3nc/8Z9SCiBwR9+CBIxwxVtLiOz6E1MA3TxI269+Tqsjl7bn+XLu+jNM58hgDP0G1xJgCVld4FCjzBDj7q1AETJ+0dXjTkTdadegDhuXtSgWsov3H4IsFqN3IRuJJ65APMgKo3hslWkPLmU6/vLOzvL/4bNdUxnQa3a2ncYYWyLN/vvgrT79CePGfTQPTsRgrhJhF8yp4Kv+NBw61IFyGJVUF88anmuXGGaNDjNpCDChijuM+kPcK9bbwUlaUP0kzxLH10GwB5s2o/pC2oUq/EaIRNtsc9AMs8Jf5GLK5uQFoFBMMvhr0vILENMrL1G1T0fEC7DokQ+sbrKAyoikE5WX8EEKACWf6xEfVVaJwogpqe+tS52KJ0AlO37k8tlMpO5BWzbbpJWucfW5lxCWefO56Uz1DRw6Zhl2lyNMdIdEH6CDmeaiWSPA/SwBF/0mX1HvbWaA6JUCQsZJwRMGeL4OLePt5VcyLwd6eEbMu2zAB21kWjFvqKJDyYuwzZEUVW1N2kh2+cLOKyVVAzi0qJMWYkUGclCeOKslTiWx6B4C9IS0SXCC0MZhCplxZq0Ma4yRPwQMxYAmtkBiQQg7HuKQCICMeusC8RwILhJVxeCN5QEUqpCBgFiHkgrtMsir22sGQJZXwFqG89lWiLorEsgfJQcrdwzkYJEkFccCA2xRLoZIeGZKSBEOjP8kTghpiTSBCWHMQcCRYm0M+ms3Y6UBKJQpMMTCXRayGoqk2IC0dkWpuGJNMfsrZQI/zroXgjTxMAIRA5MkSo2O1WFbGY9EXoYImZfnMixUq1TQrz7TuRUmwuRY5nlyLgTaSr6pD9IZ3FkQCBSbuTqH6AiHxwx1Xl4JM0CrlyENC9ESdZCCs53n2uVIeJr7Lbaz/+EVDXLttTeUXVjCZcnVHWkci2xhho6evoPrV7SZ9j4AGQAAAAASUVORK5CYII=);
+}
+
+.baseball-league-name-container .tbf {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMAMwQIEyMuGCcdKwwPZsLxNgAABQZJREFUSMfNV0uPDFEUvrqa9lr4Rld3dZlFjfdrUeOdsOj2ZtU9TBAWarwfi2mCYNNNCFbam5USEsSiZoGIjU6EBT/KPfeNDr0S32LmVt3vnvOd75xbmWH/DrmVK1eu6I/qXbw2egsI7vZD/hjRiS3A/v61zE9xtX92PkG1f/YCVFj/qKEuzOlPiAzdORL33l91f3R03yYbmlQnqEQ9qDMbEDjyST4XMMB/Ajj1O3dJAoWS8qHtU+RgQ7v6u1dEOwlCIGUuPEIniqxw+Nc2t4GbG3nx7/kCp+1Gp8jWv/sldBfhGXXsPIBxu1GZgVenf/EpyNiqx4/vZTx4Bxg0O0P+TCDMXHKzVM23QdjNbQGQsblyZzI8lDDicKdhZJE24xhpQpBC5/yUVJu+29qiNOMoAB5lMQia3Gp88o7bIjxsbCC8xw1b/gAonYNArKtpjLOFdmCXDq6Br0ZgKwCX7CXAU+ZdM+TGmcQMQEFRn+v5mYrEj9hObfUMf2kp04oailw3I4PLKLNpB/XZsfSKWpLHgP+dUmu0x85vv+LpltcuGmfOgzDAgFlODxdmb7MH6un1REsupGdtFFmKAZFoFU85HcvqbOOEFJ0fPBkpeWT2rqnwWUNGLmCQRNfvMDalJRu6b7aeMABveDtDTc6jTKJne5wlSUPNcSviMEUCJx+UZKpmIqBlRQ7RE+VEClREPxE10JK2BZSaLqMXCtKLQdVHQNoNxG3cFh1AKE6P0f2KaRm0TF9HmCKnFIxoJVFLhZSPyxkUlDUkWJOBWJIhqkLGT9RJUagDB5Emz6P0Sj45SP1sUk+nl7XiuioUyKOiyTG9SSqcTG2aNCAnQOwroZMhXZ0BiJJr/FeNXg2L+qaZG01+TUFLLhV5OtfRJdO6gtRFkZmJrgxDTYIik6waEWqZUKW2RQ/KzRJTZGVVgrhWpgYqAtOYgjmpeiqIyERCS5AvSRW3DXkYgxhQScgN6XSxSeT79JD67id/VBc7FYjUqaBD5IsiXcuSG+iUiCJcANMetsnaCySTdjUA48wkIqsKk7Ii18SucQBPjfzQfAxB5M10TnTaFIXMyA/UaiIU6T7zRrkqhgBTbccshwJBXsWDzXG/vsCYqdUMzPQQRCrwY1YFlWKbmZhSpyZitmZyaZFbn1XhAXM0uS0alWdsn+VSH8acg7P061RYlI/YM4c8AXxyjGnZGHXKNT5DNddcAjtSZmQWq0qe5X+WbPMM21rXqJG6zxwsBDLXxdg4HkqVtGv3K64kWBPL0u9Ddttzv+I5IDDq1BUulGJ3MDJXf9mqa6kAY9Y4V8Vk25OOKbVTMtFSlS33de+eeAg4aGa/pB0y2WaS9fNHsw8pAL9DT/rGFG2652b17Qk0QpO7aevOJZwdyRwvE1ikiLRHqDrmw99En4XrcJEExgt7+6eDcHz0RgK4CMqmOQNOK3qjJK2ZJlVYHb1R10PkM8f+X0MqPU91Ynfic21LvMIHIGLdETYfqp3v9PCZ3hvcjbxtuY2F6rK3AHbxvdWq67bExBE6XM6XC9UOCDcfPoK9aOYmuGTenuqyL+rZttqGdsne2WlxrgsNG9jeSEueWZkRSxno/Sdxw5J93ojYPIfx7+SCUVjDmWWd/cbNEdYD69ATRdYT53tx/ag3Odf5nRtkjPXLDqRrvdmXABcnMvYnrE2d2TvA/oLcDuVZuDtmfWDuyo8f+T+b/y9+AFFFEYkMH4VPAAAAAElFTkSuQmCC);
+}
+
+.baseball-league-name-container .acb {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMAMyQuKh8KGgYQFA0YP+NJCwAAAu1JREFUSMfNl71vE0EQxSc2Mf4qeHdnO8QUMTRBaXy4QVQJslBKWyJ8SBR2kR4jhKAzJEJCNE6IhEJlQ0cVQYOUxm5A4q/CM3ebk5FvZyvEk2xZ9u/udue9mZXpn+r96WnPlT3BXI/c2DJY/tAJHkC04cKuItIV0pVvxHCVdH0HPFe4OMfWBV5z21214bbmgtyzz+9PbdXdCc6IDuSefEmFLOrKlmQBTXqDYGRhc3PIo0OgFrId+aHqcS4EXgAdp0AMgMoXYKrBJSQa0odWa2yjQxhdlX1uK9WI5PeINLdfG3g3sqamJjM2IwMPgZIglsfNt4IqYOvCTMLSEbYb1mzMBK4Ta07O0FTixo6zgF4f9XS4j0jRhT5lUdE9OZPlV+YvX3d7KsUIrt/g6xRYpsWEP1jClzfwthSDZSkHA4YA/FaLA5Wmg2QOFcW9Piq2tjLTIiO5yFrKQUcXYV5BLQrWmRaka0SH7Xv8qHZ7pE1ajxKpsfPJTTtxt6pKsjRyg8uJyaX7wK2fVjo0FhZlRQGp06BuPsDTd1iJGj1ohwwrjvtiZm1IpYc2+LKZdDvstKJLEI1ybLpIH2DTYnJSqbnrrLocxd24C53gMIE7Gps3LVuevzS4YOCCw7ldNnDeoQUyBuae2VQ9MXAW8B+ff7xrgVcuBlguqkugGihlOzSwNqHleDiW/Clu8/PlaH33a+93z77BGjvOjCauQZNhFzbXAMYzx5E0YG7Cp3Fhj/XKwnK1mt94yaa97tg7+1j638AY24LhM1FlWDlTJjEQ9ATu0D5QtYwMXog/pRimEHWLIaFYbeB8eot35cb+S4rhzbcnHD9Lk8gaBBYFw6VsaSA/jimGLadx7lko7IgWYa+X2k6+3NfANz89B26nwrsUy5SugVoa7NHf8GRp/rLG2kW4Cy+tUUeL8Nb55+VDehKvIoEtf1QaWF/43hrREA+wsQTeoiUChovnTe4r68fyHqnQE3JVd43ctT+i/0B/ALJxlLB00xcOAAAAAElFTkSuQmCC);
+}
+
+.baseball-league-name-container .xilanjia {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMAMycELhcbIw0IEh8rs38UowAAA7JJREFUSMe9lr9v00AUx19rguPQoef8bNohKSyUxaEVU4eYVkIwOUJdmJIlqBJD0iUSkwNLQQzOguiWDJUgLA0/JMZkYeKPwu/dneMmdw4SUr+DW9997LzfZ7gJGV/vVczHP/1/YT/OGJuuM5b7tZp9w0LV1/G6t4o1mYBR91fAB3F4K9k3LxOHvZSTAB8WoDuHbWg8TXjxjAW1ObxlsVyghR8yVrk9h6/C65EWrjJWNuZw0EdTNEqFwA5MJFyEKr5eAw/wdf5AwuU03pe0VoTqrEt4kxK0o2Z5iLMpCV/VaGGohHki8paEhyOeICUc+k5uuQJ2WvxpJdxlJOhyeAdmdG8r08e4/AaHi3Ih0PhHDvU5nE+LBU8B35F7Aw6X5dMVBbxBOxQxgkspsbCpgG+JvY6At26LhawCrslflTDapeuXgYTXsLsFrKsOY58LrIsLJ7xxQCw48J961Obyw3+8TLt9aomF0wSbvSgpCTbXFtJdMBKisSb2nAmHbXD1caZyRmbGYQYTpi1oShj9uoD9kb420sKdTKyttH0lTJyaEq6bwgkV3OKRq0m4xH9rG0AXu5zTig0Z/dw1eXu6EmZOX+kfySKTUyyCm3T1AXRGDw/iIxdN1h8RBZ6JKcFFfDyrgY3z8wA+nYcKLLy+g/CPAzeqk7ieQxsFcCG0YAyLq25QgqheSJUEuENwEVJywUuAmwTnKakkPwEeElyiKUWCBdhut13Gfrdf4YsIzkZ9WVyEc45FNTbAPYLrgL3yejwef1mAxTllY112OHzFq0V5rpWo517gAwgjNtM0yoDlXAoundcE+4D34/Hnt+rB78oOfR8yYIxPqNfKyuYuHlLiYuqrxoxwaancW8rOMlzyrBs7JXFSzxTJli5lGIcxgFNohHdPer1eoDwGj0YyXS6GuaubRx9E3GifYA+084jNZZ9VEPYtCo0WliKYqnlbA9sU0+2GgO2omjsK+G6GdkwBF7CapQ/LJYre2xhwgsvRkeSo4DTFLSPenMVq1nxShQTZ7I0IftlrUk7UPoYvdalLGcHJmrBIq+GNGPtnKVjKw+oSL98B4DI+y5bVpZaYRIUUqa75BvRwUuQXYJVNa7Q+WYY9zQdVHts2twAHCpjyVWXi+3rGQV2REkcqOqCXbKtjSm740DNYmZTcPhrqm+TT2a7UnjJyeawcmw7aZszBknLWHUGNSsy9Dm8qzfBhg+AqxsNNzEkq9Gqdcj25Dnuglrm7+wDgx/FxE771pBy4Qf0FVa8DQ9b+eTgAAAAASUVORK5CYII=);
+}
+
+.baseball-league-name-container .inner {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYBAMAAACDuy0HAAAAJ1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADdEvm1AAAADXRSTlMAMywoEAMUChgGHCAkh/YFWQAABEVJREFUSMft1smPEkEUBvDHQNPCzMGvGgWHOVgSt4wHG9S4HUBFo/HQ7ks8DIrjegCDW7yMJirRCy6Jzk3cNR4kalwPqDHqOH+UXTRDNXQNmHjw4nfAOPnNm9dV1Y+i//nrhLZ8SkbWJSaOWD2pdoIDmOsDYFztYQM1wMEiC7oWD3K4MeKVnlZixKatrZvoxFgwHb4IL8Y3tb0FFWYFZRNciTFbhYtQY4wpu1BjliZFqhLMdOHFIUXpdECJ49atQS+O0S0FZqLGiAfjjVb14p9i9aNezAqhaideRgdEecuDMWiFahI7dgZE7nkxFpB+yY1fU4ADUPTRPMDnWod/OEsBs/mYKoxFBQptfMHrA4l3m4h2cwHFx4gKu9+l0MnGDyqUA+YrMbDk4WnxLpZOcOcc6ek+IKbGImxsAFOJ+CMD3qbRdpCGr2x4gAUbnz9N90VCx02kp8cz+8Q2bBUf5LNb6Ee9C+7XXiXeU2Btof+HD5MTOmZ1xWKTw6j7DdH+HkS69GzjO0hTZmbY0M5vjwfRcUxzbhwOMjJHyBcNGkTFqB9L2nHGjXWBx7RcTLM3srq0mPZODYmpgf2Ii/3ByAfqyOc2vF60kZnNxFDDrghda596NYAl1k5ysCSvk13TvMyPwTb+QT0aQppUKTVqnMlSadcm2mAR7c3SaRfunVDHIX1Mu8sF7f4K0stpOjRcodD11ERFO0znUm9Jw/Dzw/qG/OYmRjqDOduBER9mzwCWNt71+C5wABaZQGSbnGUYyyFSs5UPQxkg2g/8uIQssAYokL6BzwlilM+U2JBzLpoRXxIbNeARhzh+vB5glHNhzHbwUA3RKsC+k43vXXhG+yiAdJhRpoUzdg9mA0dzDZx41sAk5ACjTlxw8D0bFxEn7ZqDL6JyI0ZhWBfnShwnB1dsPAMYriFr42ASQ3RxDumYwEu5dKts/NJeOioiSgchJhrHWB/sn3CbVWE0p94V2n2E6Hbe0vMW6fkCaVsmH1u0M29tAyJ01mahUoF6JQO2ktqzb3x8/Pbl1v/uHHpC9h86cn78DGcmOkoCkGPqJuwYv1Jo/GsCHRPaBDBVQGtOz3niQ/xGnNqDRLL1DvcDcAYoS5mqAQ0gsWZTxf0+GqkUb9RmL70YJjBv7cenh0ePlq/kz5bgJKmczwacLG0+pWzc8mIGQD6mxoFmhRh5sdl2D9iBRky5oipcb82GqdY8uyy7cFYkKAuvJC822rooThVm5nIPvsvlWsjHM5EwUSFPAgZ3rcWAU9hIivOpiMlSKWBITmD2LinvPYo5yr6kyuXy6Gj+6Oim06RDLrICwzRdT+mXhbvhWc2vDlXHchdMyBuGJi+BnpxyjrpckvD010v7deYCywtGn/2t3+0K/8XBg86O97qb75/8muQY3Fc6+oovpR7xQ8TZy4W9cFgezNfUM2deARgCW52lP4k2fvbsefqff5/f4pAKfg+4IQgAAAAASUVORK5CYII=);
+}
+
+.basketball-score-item-body {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 72px;
+  font-size: 12px;
+  color: #333;
+  background-color: #fff;
+}
+
+.basketball-score-item-body,
+.basketball-score-item-body .border-bottom-dfe6f0 {
+  border-bottom: 1px solid #dfe6f0;
+}
+
+.basketball-score-item-body .border-right-dfe6f0 {
+  border-right: 1px solid #dfe6f0;
+}
+
+.basketball-score-item-body:last-child {
+  border-bottom: none;
+}
+
+.basketball-score-item-body .gou-time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-right: 1px solid #dfe6f0;
+}
+
+.basketball-score-item-body .gou-time .gou {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+}
+
+.basketball-score-item-body .gou-time .time {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 46px;
+}
+
+.basketball-score-item-body .gou-time .time-down,
+.basketball-score-item-body .gou-time .time-up {
+  text-align: center;
+}
+
+.basketball-score-item-body .team-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  border-right: 1px solid #dfe6f0;
+  color: #333;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.basketball-score-item-body .team-name .name {
+  width: 100%;
+  height: 36px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+
+.basketball-score-item-body .team-name .name .name-span {
+  display: inline-block;
+  max-width: 145px;
+}
+
+.basketball-score-item-body .team-name .name .team-logo {
+  width: 24px;
+  height: 24px;
+  margin-right: 6px;
+  margin-left: 12px;
+}
+
+.basketball-score-item-body .team-name .name .rank {
+  display: inline-block;
+  font-size: 12px;
+  transform: scale(0.83);
+  font-weight: 400;
+  color: #9197ad;
+  margin-left: 3px;
+  position: relative;
+  top: -1px;
+}
+
+.basketball-score-item-body .quarter-section {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-right: 1px solid #dfe6f0;
+  color: #9197ad;
+}
+
+.basketball-score-item-body .quarter-section .op {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.basketball-score-item-body .quarter-section .op>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 36px;
+}
+
+.basketball-score-item-body .score-section {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: 12px;
+  color: #9197ad;
+  border-right: 1px solid #dfe6f0;
+}
+
+.basketball-score-item-body .score-section .score-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.basketball-score-item-body .score-section .score-item>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 36px;
+}
+
+.basketball-score-item-body .score-section .quanchang {
+  color: #ff4343;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.basketball-score-item-body .score-section .quanchang>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 36px;
+}
+
+.basketball-score-item-body .score-section .quanchang .bg {
+  position: relative;
+}
+
+.basketball-score-item-body .score-section .quanchang .bg:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  background: #ffefec;
+  animation: flicker 0.8s ease-in 0s 6 reverse both running;
+}
+
+.basketball-score-item-body .score-section .quanchang .bg span {
+  position: relative;
+  z-index: 3;
+}
+
+.basketball-score-item-body .score-section .shangxia {
+  color: #333;
+}
+
+.basketball-score-item-body .score-section .live {
+  box-shadow: inset -1px 0 0 0 #eee;
+}
+
+.basketball-score-item-body .score-section .live .shipin-donghua {
+  display: flex;
+  align-items: center;
+}
+
+.basketball-score-item-body .score-section .live .shipin-donghua img {
+  width: 16px;
+  height: 16px;
+}
+
+.basketball-score-item-body .score-section .live .anchor-img {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.basketball-score-item-body .score-section .live .anchor-img img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.basketball-score-item-body .score-section .live .anchor-img .num {
+  position: absolute;
+  top: 0;
+  right: -9px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.basketball-score-item-body .score-section .live .anchor-img .num span {
+  position: absolute;
+  top: -5px;
+  color: #fff;
+  transform: scale(0.7);
+}
+
+.basketball-score-item-body .score-section .live .anchor-img .double {
+  width: 15px;
+  height: 10px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAUCAYAAADskT9PAAAAAXNSR0IArs4c6QAAA6ZJREFUSA1tVjtoFUEUnc++GCwUIUK0t1ELURErGzsLwSogaGWiINqK3SsEewsRLUxhZVobQYiFjYiFWIgEFUENqCB+EojxZT3n3Ln75r1kzO7Mvffcc8+d3bdODFuMpQdXdvxaXZ8JsT0dYzqQUt4bU9iGOeScQ4wxJMwZdsoppJTgwwwf1xkXZ9r0Z2BstngkJjevJo5eONSM1395b+7yz5W1fhvaqRhigIjAfyla4RYJCQIQGRkUhT9cHrHZ7xTkQ5gC6wR8uN+f/P73y/xgo50RoAVCpFRvqSqCpWZVG/q1orq2DexQ2pmfSnLJM06KNX8n6/u/5XkkleJigkkQCEsx7gTXjLJCJ6Raq7gyxworx8SXpSYJeIFtD+hcHnQA5q6oKcUzp68qNCQZK2Tp6pz4WqgLdj85El84POY+O9Vgt0UEbUsyF4X54NZ6zImF15ZXuCrHc6krF0ji247SUyJnYeooSSS2gWIsqJAVLgGJYEDYkTzLIa4TiLjWYjKGNAiD0+q41K5iWKqkkRci6atItVlVkgnxHorYWlghEA48KbXpICogo3RBAFiNiASwMRJ+zzTcTx/X9cX3xAcihiXOsT4DR+EcqY0b01pp++GlkPKbNT4jKvghqYIEK7u7mSCKNVct2MgtgEc6IILIVUFJyKtI45eLQwSccXmH3jVfmK5T5Dp2JI9+c9h7ZAbZvtFNzk9etGVxiiijI4e9NTk/UobnzF3i7AyKVXHRqgQQMXykzTaf0tJzL6kiYWKdTOJyCY9EK6AFbmY7hjuoeGmqa0YcBIfHzElhIyyoLovhb3x0hAh4h8TYI6LH0roCcJlXIYnQoyM3AoXvR9hdBBy9ePcZQk/0GKC2K9h1a0QIWAwq1ZncKmt2ET+eT5uCXCD7hHUzTp9f4UpvWorNVbwNvxUyBJc2kOAFSSIyiUG4jtFnDuA9uVC4Q/jwPGzffcsREnBk9vYbfA/OotA6A/78kr5+liVO3OyXYD3x2+AdW55Qnc9jXW5K7+NE70zcd2ptRACNI3N3HsVePomiXz2oFovBb8OmHRgCVRQ3myu/lvDnmBfTZD4W959brsMmufK8e3ht5++V1espxzkcInbxFMSu/QTE/xN4KuIBgzvFWackzFzXNk9MuF7HXroxcXh2ATvCrRsZmwR4tF3sN2+X/5zAa3mgyXEPmCe55bnBGQaFGgjRcSw0ITZYszjiTdNrIfgHhH5ucu/Z5PFLS8651fwfNReskoyH60wAAAAASUVORK5CYII=);
+}
+
+.basketball-score-item-body .score-section .live .anchor-img .double span {
+  right: -1px;
+}
+
+.basketball-score-item-body .score-section .live .anchor-img .single {
+  width: 16px;
+  height: 10px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAUCAYAAACeXl35AAAAAXNSR0IArs4c6QAAA2hJREFUSA1tVj1oFEEUnnmzSQ4LRUgg2tuohRgJVjZ2FgGrgKBdEkG0FbsrBHsLES1MYWVaG0GIRRoRC7GwCFEENWACQSXBS7ys3/e9mb296Nztzry/73vvzezexfCfsfr05uGfO3uzIcWZZHYqWToeYhxLKQVe0UyzmcsGWRdsnOkzZGOc2bux6YUz1UG+t4/nb/zY7nXrEMatTqHGAl8GgDPK3ecYXHIE6nhZNCjaFpeiua4h/PSk29nc/bbY369nFYwgAWRHwlLGTXNZS08f2jBqfKzlw244JecQ/I7F5p/1RXCITGUNMNAeF1ipiDT7mrI+mYQVklr6nISq83yc8A3aGFAZ/JAiYOHYtEZBlP0aAlIeGSmTZLZWYoOECG88ILEOXd8pRVEPUn1FxARYHTX8aGYlTAYX25ZhIVJPNf3y7EvJxtMIsHF55RPizgQqQciMwBnIqxSc6wmstgsTfnm/tH9OyngO64f+TDmKqqIBpVnCULY8FE7sFXqMg9Hfk/E4ISjRYg+hstpO1+ipww8MJZCtEhCzVXBuJbUZjDP3nIcLSw23NWfStwYWq+P+pDzUTmZfDozwG1CHcRLcpafO0ylWt4ssG50YXjH0qWLaO3Jnak16XDK73CKumAgPR3ajzOGApXrq6JD1OV6KYBv0515+0R5CqFFlAaLRwRzkoF52JWB62N1eEjxILLDPjGEZr5RBJiskvh/+OEhXqkWGAs9VDKoZJCh/7SeJMdSW8IJLC/thiUFUCohaV2ilx2HoyMtZh0QO9Gb7h+KLhWpsRUpbYSITnlt4tALzS7YVlHJQhgQQkWfZ6FrAA534xDLQlT1HfF3fi5PXtunAliLb6hZuv1iYB1DrQ/WAhIO2Zm6vlag/LvJhUgTDgPw6HJq4LwE3EU7NPfiA5/EKjHtwgZMH633K4HwVG59a6vSibmyuI3Dxx6n+GEery/HEpR71HCLkYmr+4fNk1UW08TvlMjzPAQj12lcuYGxV0hAxBqTL1knT8eTVdbqWUfCKHNae3T7S6+3ewUM3n5IdxYbr+Wv/gvsvOrqAx2LoXwD/AVh6b6Pp7ujZuSWQ+iusQVeOLam1rJe71drG7wtAwF8MOxaTdUha6RVWhVjFUKWKr7Pa4shWquLXKo2sdM5fX23B/LP8C+KLjtzC/geJAAAAAElFTkSuQmCC);
+}
+
+.basketball-score-item-body .score-section .live .anchor-img .single span {
+  right: 2px;
+}
+
+.basketball-score-item-body .score-section .ouzhi {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  color: #333;
+  background: #fbfbfc;
+}
+
+.basketball-score-item-body .score-section .ouzhi .down,
+.basketball-score-item-body .score-section .ouzhi .up {
+  display: flex;
+  align-items: center;
+}
+
+.basketball-score-item-body .score-section .ouzhi>div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 36px;
+}
+
+.basketball-score-item-body .rangfen,
+.basketball-score-item-body .zongfen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  background: #fbfbfc;
+  border-right: 1px solid #dfe6f0;
+}
+
+.basketball-score-item-body .rangfen .down-wrap,
+.basketball-score-item-body .rangfen .top-wrap,
+.basketball-score-item-body .zongfen .down-wrap,
+.basketball-score-item-body .zongfen .top-wrap {
+  width: 100%;
+  height: 36px;
+  display: flex;
+  align-items: center;
+}
+
+.basketball-score-item-body .rangfen .down-wrap .data-wrap,
+.basketball-score-item-body .rangfen .top-wrap .data-wrap,
+.basketball-score-item-body .zongfen .down-wrap .data-wrap,
+.basketball-score-item-body .zongfen .top-wrap .data-wrap {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* color: #bc8c5a */
+}
+
+.basketball-score-item-body .rangfen .down-wrap .down,
+.basketball-score-item-body .rangfen .down-wrap .up,
+.basketball-score-item-body .rangfen .top-wrap .down,
+.basketball-score-item-body .rangfen .top-wrap .up,
+.basketball-score-item-body .zongfen .down-wrap .down,
+.basketball-score-item-body .zongfen .down-wrap .up,
+.basketball-score-item-body .zongfen .top-wrap .down,
+.basketball-score-item-body .zongfen .top-wrap .up {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.basketball-score-item-body .rangfen .down-wrap .down .num,
+.basketball-score-item-body .rangfen .down-wrap .up .num,
+.basketball-score-item-body .rangfen .top-wrap .down .num,
+.basketball-score-item-body .rangfen .top-wrap .up .num,
+.basketball-score-item-body .zongfen .down-wrap .down .num,
+.basketball-score-item-body .zongfen .down-wrap .up .num,
+.basketball-score-item-body .zongfen .top-wrap .down .num,
+.basketball-score-item-body .zongfen .top-wrap .up .num {
+  display: flex;
+  align-items: center;
+  margin-left: 7px;
+  color: #9197ad;
+}
+
+.basketball-score-item-body .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.basketball-score-item-body .data a {
+  color: #9197ad;
+}
+
+.basketball-score-item-body .data a:hover {
+  color: #e3ac72;
+}
+
+.basketball-score-item-body .data>div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  cursor: pointer;
+}
+
+.basketball-score-item-header-timeStatus {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.basketball-score-item-live {
+  width: 44px !important;
+  height: 100% !important;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: space-around !important;
+}
+
+.basketball-score-item-live .live-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.basketball-score-item-live .live-anchor {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #f3c594;
+}
+
+#ScoreBoard {
+  position: relative;
+  z-index: 1;
+  /* overflow: hidden; */
+  background-color: #f5f3f0;
+
+  .hover-box {
+    height: 100%;
+    position: relative;
+  }
+
+  :deep(.score_list_item) {
+    &.hover {
+      z-index: 1;
+    }
+  }
+}
+
+#ScoreBoard .score-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  width: 1304px;
+  margin: 0 auto;
+}
+
+#ScoreBoard .score-container .score-container-main {
+  width: 1200px;
+  margin: 0 auto;
+  /* min-height: calc(100vh - 60px) */
+}
+
+#ScoreBoard .score-container .score-container-main .score-banner {
+  width: 1200px;
+  height: 80px;
+  // object-fit: cover;
+  cursor: pointer;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#ScoreBoard .score-container .score-container-main .score-container-loading {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#ScoreBoard .score-container .score-container-main .header-second-filter {
+  width: 100%;
+  height: 45px;
+}
+
+#ScoreBoard .score-container .score-container-main .container-section {
+  box-shadow: 0 20px 21px 11px hsla(7, 12%, 59%, 0.24);
+  overflow: hidden;
+}
+
+#ScoreBoard .score-container .score-container-main .container-section .title {
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 542px;
+}
+
+#ScoreBoard .score-container .score-container-main .container-section .title .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+#ScoreBoard .score-container .score-container-main .container-section .title .container-section-field {
+  display: inline-block;
+  font-size: 14px;
+  color: #9197ad;
+}
+
+#ScoreBoard .score-container .score-container-main .container-section>ul>li.football-score-item:nth-child(odd) {
+  background-color: #fff;
+}
+
+#ScoreBoard .score-container .score-container-main .container-section>ul {
+  border-bottom: 1px solid #dfe6ef;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  background-color: #f1f3f4;
+  font-size: 13px;
+  color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.05);
+  background-image: linear-gradient(268deg, #89616c, #493c50);
+  overflow: hidden;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header .icon-zhiding {
+  width: 20px;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header .icon-check {
+  width: 20px;
+  cursor: pointer;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header>li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header .teamName-score .guestTeam,
+#ScoreBoard .score-container .score-container-main .football-score-container-header .teamName-score .hostTeam {
+  width: 189px;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header .teamName-score .hostTeam {
+  text-align: right;
+  padding-right: 10px;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header .teamName-score .guestTeam {
+  text-align: left;
+  padding-left: 10px;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header .teamName-score .vs {
+  width: 42px;
+  text-align: center;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header .gou-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header .gou-container .gou {
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header .gou-container .checked {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAGKADAAQAAAABAAAAGAAAAADiNXWtAAAB2ElEQVRIDbVWu0oDQRSd1dp8QEiXQsHGL1C0iIqQFIJBBYuAhUQiFoqCjZXoJxgUW7USdGMjEdTKLwgaHyB2ijFFhJiM5yxOmF03664xFw53Z+fOOXPvPHYN4WFSygi6E8AYEAXCAO0ZKAInwJFhGE/w/g3EYSALfAK/GWMYq8S9hRAYB96BoMYxcU92BGSAWlBmLZ5jM64i6ODMWyFXOuSwZ4IXrPlfyqJInZ5c1pp0fKezDt/lmpqPl/V6XVxcXotK5UNFk4ucQkApAvjZLc5ZWu1arSaXVjdkb19M7h8e6zHkjDAD7vNOigU1znxlbUuYubzo6Y6KkeEBnYKcCWZg6rJ+n/WZjyfnZKnkuoQmBQp+SVWcT3KGFyhQVgOVP8tfSfP0XDVtPgA5x5VdBaZmFqxF29k7aIW8IfCjRLfFB9k/NGETCThzNbGCgScTqz2qLz+fi3ePIjW7LF5e38RiJiUKN/eN3bK7vSlCIV/HJscSpZWc0+uZcJ977BbnUNVOU8DzoFFkMDYpk9PzzbaiInN666BZlUEP7/OmVq1Wm/Z5dGQbZUdQ2y47XaR917VSQSbt++BoIszE9WLxqDe7OMb+oVGkTo/Af/voG05yvQ2hln9bvgCK4wJOJwnfBQAAAABJRU5ErkJggg==) no-repeat;
+  background-size: cover;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header .gou-container .no-checked {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAGKADAAQAAAABAAAAGAAAAADiNXWtAAABEUlEQVRIDbWWTQ6CMBCFqW71AsaFCcchgZt4B8/hgjO44DgkLgwHUJca/J6hBAhB+ZmXvDTC9L1OaWd0wQDKstzzOoERDOEOCgXMYQYvzrkb4/9AeAfP8AV/QTGK9ebDRgTG8A7HQnPiQXUCjvA9VrkRr7nHXhNeaOVzxL2PNNqZ8EB7PmVbvGh3lNb3m6yqdE6M297Upj2UljQDh5OO4hWu4ZJ4I3ZQBjrnS4trodJMZKBLZIVIBrqhVgj1DR6ob4wcnv4UGekHgQxUuKxQyEBV0Qq5DFRyrZDZX7SqWaQGKaR1I1JhgibFrl44Bnbl2rtgYtdwGibKZMp2aU670XjR7kjgYk3fdcWbvzGa/bflAwSI5hjqelsBAAAAAElFTkSuQmCC) no-repeat;
+  background-size: cover;
+}
+
+#ScoreBoard .score-container .score-container-main .football-score-container-header .gou-container .orange {
+  color: #d8ad66;
+}
+
+#ScoreBoard .score-container .score-container-main .immediate,
+#ScoreBoard .score-container .score-container-main .immediate .model-one {
+  display: flex;
+  align-items: center;
+}
+
+#ScoreBoard .score-container .score-container-main .immediate .model-two {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#ScoreBoard .score-container .score-container-main .finished,
+#ScoreBoard .score-container .score-container-main .progress {
+  display: flex;
+  align-items: center;
+}
+
+#ScoreBoard .score-container .score-container-main .finished .model-one,
+#ScoreBoard .score-container .score-container-main .progress .model-one {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#ScoreBoard .score-container .score-container-main .finished .model-one {
+  padding-right: 8px;
+  font-size: 12px;
+}
+
+#ScoreBoard .score-container .score-container-main .odds-up {
+  color: #ff4343;
+}
+
+#ScoreBoard .score-container .score-container-main .odds-up.football:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  margin-left: 3px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: flicker 0.8s ease-in 0s infinite reverse both running;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAGKADAAQAAAABAAAAGAAAAADiNXWtAAABrklEQVRIDc1UsU4CQRDduRwJCQmtBR+g4g+QGCoIgQQTaPwHKz/A5ir9ABu/gEIaQygooCIkNpaiFhYW/ICGgHeJ4+ze5W45do/RxMRLNjvz5r03O8sdQvzxA1x/9DxHTKd3il+tdsDzvjhah0NSnNnsjPYTtcKYJWVNgO12SazXc4FYVK4A7yKfL8NwuNjVhTfBanUdm0tH2UhijGdnA2w0OuTTNXh1o5qhlECZV4StVlH4/pzopUSyES1EoXAIg8HHBqol2RP4/iVxbebSpiSWyyvNbyu0ToD1eoXYM7rv7EMAyNf1GMbj+y13AuxixBsy/xQAfVq3W2KJyZrkSK7lsTdwnHO63z062SlpewZ9T9WIQ40uDHUFWa9IF2CzuS+C4FnHRC53AKPRywZmSOwT6ORK5ZXSQIMCEWIaZA5ZE0gp1mqPtJUjmzlMJkdRnLnxJpAWAE+xkx7HoDngNxBC/w302OwcofwGiMkEepxpn/UdpIWumzTQ4zQvlbup3J4iylcSFSGM7dzfVujv402un+j5E4SuyTUxu/yzBgAPzIPHtJ9N4Lr9WMkMvgFu53ZLlQsp/gAAAABJRU5ErkJggg==);
+}
+
+#ScoreBoard .score-container .score-container-main .odds-up.football.middle:after {
+  right: -2px;
+}
+
+#ScoreBoard .score-container .score-container-main .odds-up .arrow {
+  display: block;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAGKADAAQAAAABAAAAGAAAAADiNXWtAAABrklEQVRIDc1UsU4CQRDduRwJCQmtBR+g4g+QGCoIgQQTaPwHKz/A5ir9ABu/gEIaQygooCIkNpaiFhYW/ICGgHeJ4+ze5W45do/RxMRLNjvz5r03O8sdQvzxA1x/9DxHTKd3il+tdsDzvjhah0NSnNnsjPYTtcKYJWVNgO12SazXc4FYVK4A7yKfL8NwuNjVhTfBanUdm0tH2UhijGdnA2w0OuTTNXh1o5qhlECZV4StVlH4/pzopUSyES1EoXAIg8HHBqol2RP4/iVxbebSpiSWyyvNbyu0ToD1eoXYM7rv7EMAyNf1GMbj+y13AuxixBsy/xQAfVq3W2KJyZrkSK7lsTdwnHO63z062SlpewZ9T9WIQ40uDHUFWa9IF2CzuS+C4FnHRC53AKPRywZmSOwT6ORK5ZXSQIMCEWIaZA5ZE0gp1mqPtJUjmzlMJkdRnLnxJpAWAE+xkx7HoDngNxBC/w302OwcofwGiMkEepxpn/UdpIWumzTQ4zQvlbup3J4iylcSFSGM7dzfVujv402un+j5E4SuyTUxu/yzBgAPzIPHtJ9N4Lr9WMkMvgFu53ZLlQsp/gAAAABJRU5ErkJggg==);
+}
+
+#ScoreBoard .score-container .score-container-main .odds-down {
+  color: #3eba61;
+}
+
+#ScoreBoard .score-container .score-container-main .odds-down.football:after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  margin-left: 3px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: flicker 0.8s ease-in 0s infinite reverse both running;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAGKADAAQAAAABAAAAGAAAAADiNXWtAAABnUlEQVRIDbVUu0oDQRQ9s1nRIMGPUPJoBMFSULAQEyz1GxT0A+z8C3/AykbRGLCyUbBUG0kKu2BvEIKPHe8dd3YnQ2YzU2RhMmfOnHNP9s7uAgHXdgezPAIsiEPEbwl2U/2Zry/yFSqdwCp4BFxBdwCJekBtJQ0LABqhAcLXsHyL+eEPBqyfi1F52cKnj9f7DL6+qT2SToCGwj7VSeMdIKO8/yaelOMdQIXM/pu4MMM7QMo8wMSF1WnTO2Cqd7Bxh5getyX9bxkzp9dFs9cdvA+xSG2Z0YUYM6fXRbMzoNFGq3aPCpvH9VxzrKl3sO4Kcb5o1TaeyFQVAtf87EtkHzpVi/hzBhS0Q29Ht9fCitqwfpx9LEXY/03wQAX2LI9aGnxSEjgYp2HO2aLXJh4jgVOXUfOsYa1e27MzgIVyAcc09W2Tse6nGoMahYUB3TX6uEU4HLUYK9pTGoOyYWEAi3tNXNJ0YRuZS/fGbOXUxACWlss4oiflI7MRVlxGuIFXwPMmnYNU5/FfibDi3HXDd04kotoNrngwDq8wJccfkrBkG6brsFkAAAAASUVORK5CYII=);
+}
+
+#ScoreBoard .score-container .score-container-main .odds-down.football.middle:after {
+  right: -2px;
+}
+
+#ScoreBoard .score-container .score-container-main .odds-down .arrow {
+  display: block;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAGKADAAQAAAABAAAAGAAAAADiNXWtAAABnUlEQVRIDbVUu0oDQRQ9s1nRIMGPUPJoBMFSULAQEyz1GxT0A+z8C3/AykbRGLCyUbBUG0kKu2BvEIKPHe8dd3YnQ2YzU2RhMmfOnHNP9s7uAgHXdgezPAIsiEPEbwl2U/2Zry/yFSqdwCp4BFxBdwCJekBtJQ0LABqhAcLXsHyL+eEPBqyfi1F52cKnj9f7DL6+qT2SToCGwj7VSeMdIKO8/yaelOMdQIXM/pu4MMM7QMo8wMSF1WnTO2Cqd7Bxh5getyX9bxkzp9dFs9cdvA+xSG2Z0YUYM6fXRbMzoNFGq3aPCpvH9VxzrKl3sO4Kcb5o1TaeyFQVAtf87EtkHzpVi/hzBhS0Q29Ht9fCitqwfpx9LEXY/03wQAX2LI9aGnxSEjgYp2HO2aLXJh4jgVOXUfOsYa1e27MzgIVyAcc09W2Tse6nGoMahYUB3TX6uEU4HLUYK9pTGoOyYWEAi3tNXNJ0YRuZS/fGbOXUxACWlss4oiflI7MRVlxGuIFXwPMmnYNU5/FfibDi3HXDd04kotoNrngwDq8wJccfkrBkG6brsFkAAAAASUVORK5CYII=);
+}
+
+#ScoreBoard .score-container .score-container-main .arrow {
+  display: none;
+  width: 12px;
+  height: 12px;
+  margin-left: 3px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  animation: flicker 0.8s ease-in 0s 6 reverse both running;
+}
+
+#ScoreBoard .score-container .score-container-main .red-bg {
+  background-color: rgba(255, 93, 93, 0.25);
+}
+
+#ScoreBoard .score-container .score-container-main .green-bg {
+  background-color: rgba(104, 185, 92, 0.25);
+}
+
+.football-score-legend-container {
+  height: 80px;
+  background-color: #fdfdfd;
+  margin-bottom: 20px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  overflow: hidden;
+}
+
+.football-score-legend-container>div {
+  min-width: 1200px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 26px;
+}
+
+.football-score-legend-container>div .label {
+  color: #333;
+  font-size: 14px;
+  margin-right: 13px;
+}
+
+.football-score-legend-container>div .legend-item {
+  color: #333;
+  font-size: 12px;
+  margin-right: 28px;
+}
+
+.football-score-legend-container>div .legend-item>img {
+  height: 16px;
+  margin-right: 5px;
+}
+
+.football-score-container {
+  width: 100%;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background: #fff;
+  margin-bottom: 21px;
+}
+
+.football-score-container #going .match-status,
+.football-score-container #going .match-status .point-animation:after {
+  color: #ff4343;
+}
+
+.football-score-container #uncoming .match-status {
+  color: #9197ad;
+}
+
+.football-score-container #finished .match-status {
+  color: #343b5e;
+}
+
+.football-score-container #unknown .match-status {
+  color: #9197ad;
+}
+
+.football-league-name-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 43px;
+  position: relative;
+}
+
+.football-league-name-container .football-league-color-block {
+  width: 4px;
+  height: 34px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.football-league-name-container .football-league-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 9px;
+}
+
+.football-league-name-container .football-league-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.football-league-name-container .league-name {
+  width: 50px;
+  font-size: 12px;
+  color: #333;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.football-league-name-container .match-icon {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.pop-tip-handicap {
+  width: 536px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 11;
+  background-color: #fff;
+  box-shadow:
+    5px 5px 21px 11px hsla(7, 12%, 59%, 0.24),
+    0 5px 15px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.pop-tip-handicap:before {
+  visibility: hidden;
+  top: -4px;
+  background-color: #f1e4d2;
+}
+
+.pop-tip-handicap:after,
+.pop-tip-handicap:before {
+  content: '';
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  left: 262px;
+  z-index: -1;
+  transform: rotate(45deg);
+}
+
+.pop-tip-handicap:after {
+  bottom: -4px;
+  background: #fff;
+}
+
+.pop-tip-handicap.pop-tip-handicap-hidden-after:after {
+  visibility: hidden;
+}
+
+.pop-tip-handicap.pop-tip-handicap-show-before:before {
+  visibility: visible;
+}
+
+.pop-tip-handicap .pop-tip-handicap-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 111px;
+}
+
+.pop-tip-handicap .pop-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 12px;
+  font-size: 14px;
+  color: #6d4117;
+  background-image: linear-gradient(90deg, #f3e6d3, #e4d2c1);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.pop-tip-handicap .pop-header .left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pop-tip-handicap .pop-header .left .team-name {
+  min-width: 150px;
+  color: #6d4117;
+}
+
+.pop-tip-handicap .pop-header .left .text-right {
+  text-align: right;
+}
+
+.pop-tip-handicap .pop-header .left .vs {
+  font-weight: 700;
+  margin: 0 15px;
+}
+
+.pop-tip-handicap .pop-header .right {
+  width: 20px;
+  height: 20px;
+}
+
+.pop-tip-handicap .table {
+  display: flex;
+  color: #9197ad;
+  font-size: 12px;
+}
+
+.pop-tip-handicap .table .col_four,
+.pop-tip-handicap .table .col_one,
+.pop-tip-handicap .table .col_thr,
+.pop-tip-handicap .table .col_two {
+  border-right: 1px solid #e9eaeb;
+}
+
+.pop-tip-handicap .table .col_four .item,
+.pop-tip-handicap .table .col_one .item,
+.pop-tip-handicap .table .col_thr .item,
+.pop-tip-handicap .table .col_two .item {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  height: 37px !important;
+  font-size: 12px !important;
+  padding-left: 0 !important;
+}
+
+.pop-tip-handicap .table .col_four .item .left,
+.pop-tip-handicap .table .col_four .item .middle,
+.pop-tip-handicap .table .col_four .item .right,
+.pop-tip-handicap .table .col_one .item .left,
+.pop-tip-handicap .table .col_one .item .middle,
+.pop-tip-handicap .table .col_one .item .right,
+.pop-tip-handicap .table .col_thr .item .left,
+.pop-tip-handicap .table .col_thr .item .middle,
+.pop-tip-handicap .table .col_thr .item .right,
+.pop-tip-handicap .table .col_two .item .left,
+.pop-tip-handicap .table .col_two .item .middle,
+.pop-tip-handicap .table .col_two .item .right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 37px;
+}
+
+.pop-tip-handicap .table .col_four .item .middle,
+.pop-tip-handicap .table .col_one .item .middle,
+.pop-tip-handicap .table .col_thr .item .middle,
+.pop-tip-handicap .table .col_two .item .middle {
+  width: 100%;
+  height: 17.5px;
+  position: relative;
+}
+
+.pop-tip-handicap .table .col_four .item .middle .val,
+.pop-tip-handicap .table .col_one .item .middle .val,
+.pop-tip-handicap .table .col_thr .item .middle .val,
+.pop-tip-handicap .table .col_two .item .middle .val {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.pop-tip-handicap .table .col_four .item .middle .bg,
+.pop-tip-handicap .table .col_one .item .middle .bg,
+.pop-tip-handicap .table .col_thr .item .middle .bg,
+.pop-tip-handicap .table .col_two .item .middle .bg {
+  width: 100%;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.pop-tip-handicap .table .col_four .item .middle.odd-down .val,
+.pop-tip-handicap .table .col_one .item .middle.odd-down .val,
+.pop-tip-handicap .table .col_thr .item .middle.odd-down .val,
+.pop-tip-handicap .table .col_two .item .middle.odd-down .val {
+  color: #7670b6;
+}
+
+.pop-tip-handicap .table .col_four .item .middle.odd-down .bg,
+.pop-tip-handicap .table .col_one .item .middle.odd-down .bg,
+.pop-tip-handicap .table .col_thr .item .middle.odd-down .bg,
+.pop-tip-handicap .table .col_two .item .middle.odd-down .bg {
+  animation: flicker 0.8s ease-in 0s 6 reverse both running;
+  visibility: visible;
+  border-radius: 3px;
+  opacity: 0.2;
+  background-color: #7670b6;
+}
+
+.pop-tip-handicap .table .col_four .item .middle.odd-up .val,
+.pop-tip-handicap .table .col_one .item .middle.odd-up .val,
+.pop-tip-handicap .table .col_thr .item .middle.odd-up .val,
+.pop-tip-handicap .table .col_two .item .middle.odd-up .val {
+  color: #e30000;
+}
+
+.pop-tip-handicap .table .col_four .item .middle.odd-up .bg,
+.pop-tip-handicap .table .col_one .item .middle.odd-up .bg,
+.pop-tip-handicap .table .col_thr .item .middle.odd-up .bg,
+.pop-tip-handicap .table .col_two .item .middle.odd-up .bg {
+  animation: flicker 0.8s ease-in 0s 6 reverse both running;
+  visibility: visible;
+  border-radius: 3px;
+  opacity: 0.2;
+  background-color: #e30000;
+}
+
+.pop-tip-handicap .table .col_one {
+  flex: 62;
+}
+
+.pop-tip-handicap .table .col_two {
+  flex: 137;
+}
+
+.pop-tip-handicap .table .col_thr {
+  flex: 199;
+}
+
+.pop-tip-handicap .table .col_four {
+  flex: 136;
+  border-right: none;
+}
+
+.pop-tip-handicap .red {
+  color: #e30000;
+}
+
+.pop-tip-handicap .green {
+  color: #7670b6;
+}
+
+.pop-tip-handicap .asia-odd-block .val {
+  margin-right: 3px;
+}
+
+.pop-tip-handicap .pointer {
+  cursor: pointer;
+}
+
+.pop-tip-handicap .opacity {
+  color: #bc8c5a !important;
+}
+
+.pop-tip-handicap .bg-color {
+  color: #343b5e;
+  background-color: #f2f3f5 !important;
+}
+
+.pop-tip-handicap .color-000 {
+  color: #000;
+}
+
+.football-score-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  background-color: #f4f5f8;
+  border-top: 1px solid #dfe6ef;
+}
+
+.football-score-item .immediate {
+  width: 100%;
+}
+
+.football-score-item .gou {
+  height: 100%;
+}
+
+.football-score-item .gou,
+.football-score-item .match-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.football-score-item .time {
+  font-size: 12px;
+  color: #333;
+  margin-left: 6px;
+}
+
+.football-score-item .match-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  height: 100%;
+  border-right: 1px solid #dfe6f0;
+}
+
+.football-score-item .teamName-and-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-left: 6px;
+}
+
+.football-score-item .corner,
+.football-score-item .half {
+  font-size: 12px;
+  color: #333;
+}
+
+.football-score-item .live,
+.football-score-item .rangqiu-daxiao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.football-score-item .data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #9197ad;
+}
+
+.football-score-item .data>div {
+  cursor: pointer;
+}
+
+.football-score-item .data>div a {
+  color: #9197ad;
+}
+
+.football-score-item .data>div a:hover {
+  color: #e3ac72;
+}
+
+.football-score-item .match {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.football-score-item-add-time {
+  display: block;
+  position: relative;
+  height: 32px;
+  background-color: #fffaea;
+  border-top: 1px solid #f7efe6;
+}
+
+.football-score-item-add-time .desc-wrap {
+  width: 100%;
+  height: 100%;
+  padding-left: 208px;
+}
+
+.football-score-item-add-time:before {
+  content: '';
+  position: absolute;
+  height: 6px;
+  width: 10px;
+  top: -6px;
+  left: 398px;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAASCAYAAABM8m7ZAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAHqADAAQAAAABAAAAEgAAAAAPsdoEAAACfklEQVRIDa1VO48TMRAee1+JOHQ8JCKCBAUUVBQIJB4S/AFogALooKWDEqorqRGioqCgAAndHUgUNLScqGj4B0ngpEtWp7B2du1hxoo3D3JhE5giXq+/+b7x+FsHYMnQvdbNrNteWzJ9ubRBb/us6rb6WbeFOu3cXoZFLJqE/e2mGuRblHeMc4kgkwKuxAeaXxfhkouAEbGu8mKDcpwo5yJA3aDY4IIW4aosTKKC2voKEM+xALdKlP3CJhW0TphaVfHKwqr3Y42Ib3niMJEQJYErwL1DPK/S9ku//rexkjDt9C6AfeLJwkhAEEqQgQAuoAyEO+T2x+V8zkPZrL0wg7RzwaL9jAgJYwISi2rBBLzQForCundCCBQobyQHG+sToKnJXGHMdo4rrbfoXBucJ8m+cX1S1PPlyoAxZDUKAaIvInkpWWl88+vT41ifJpcQf65opd97UdoJnemecHfeXBgHAu6zud3E3c6RSdbRbCYTmUjqnnlNBGcYynRxTYIYEo/Sx54IxIWNWognVGHfEVc8hiofZwqTmZ6S6HWPcoTzRIdALozPfyQOl8kjLzzP+PiHcNbt3KcqH3lQGJF7ycFVwzk9HuEt4j26Xh9O548VB5Dvtq8aA59IOGJgEPK5zjbTNNH0vBiQ0/PS6ZbacK22evSjx5XCdEGcRDBfyBmHeVGSXuw+mxLicyqPg8yAtaXTUxHixWR/87vj5x/EnVUA88GL8lUYJyGtLC/KvM6Qw3uVPLOKRmximh7iNUltDXSq3tAFcZpfsJTb6b9pMhWR0XfPX8NwA6R1SuOvtzSGQnXbz6iaBw5HP3ymks72f4YtEHJt+J/MBd0Jz38DT+n7WfVqElQAAAAASUVORK5CYII=);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.football-score-item-add-time .desc {
+  width: 380px;
+  height: 100%;
+  font-size: 12px;
+  color: #bc8c5a;
+  text-align: center;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.football-score-item-add-time.collect .desc-wrap,
+.football-score-item-add-time.finished .desc-wrap,
+.football-score-item-add-time.immediate .desc-wrap {
+  padding-left: 235px;
+}
+
+.football-score-item-add-time.collect:before,
+.football-score-item-add-time.finished:before,
+.football-score-item-add-time.immediate:before {
+  left: 437px;
+}
+
+.football-score-item-add-time.collect .desc,
+.football-score-item-add-time.finished .desc,
+.football-score-item-add-time.immediate .desc {
+  width: 385px;
+}
+
+.football-score-item-live {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  cursor: pointer;
+}
+
+.football-score-item-live img {
+  width: 18px;
+  height: 18px;
+}
+
+.football-score-item-live .live-anchor {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #f3c594;
+}
+
+.football-score-item-odds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 45px;
+  font-size: 12px;
+}
+
+.football-score-item-odds .odds-handicap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 19px;
+  line-height: 19px;
+  font-size: 12px;
+  color: #9197ad;
+}
+
+.football-score-item-odds .odds-dx {
+  color: #343b5e;
+}
+
+.football-score-item-odds .odds-dx,
+.football-score-item-odds .odds-europe {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 16px;
+  line-height: 16px;
+}
+
+.football-score-item-odds .odds-europe {
+  color: #e3ac72;
+}
+
+.football-score-item-odds .odds-dx .left,
+.football-score-item-odds .odds-dx .right,
+.football-score-item-odds .odds-europe .left,
+.football-score-item-odds .odds-europe .right,
+.football-score-item-odds .odds-handicap .left,
+.football-score-item-odds .odds-handicap .right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 100%;
+  position: relative;
+}
+
+.football-score-item-odds .odds-dx .middle,
+.football-score-item-odds .odds-europe .middle,
+.football-score-item-odds .odds-handicap .middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 100%;
+  white-space: nowrap;
+  position: relative;
+}
+
+.football-score-item-odds .odds-dx .middle .num,
+.football-score-item-odds .odds-europe .middle .num,
+.football-score-item-odds .odds-handicap .middle .num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 100%;
+  border-radius: 1px;
+}
+
+.football-score-item-operation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 18px;
+}
+
+.football-score-item-operation .arrow-top,
+.football-score-item-operation .collect,
+.football-score-item-operation .statics {
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.football-score-item-operation .arrow-top {
+  margin-left: 5px;
+}
+
+.football-score-item-operation .collect-hollow {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAKKADAAQAAAABAAAAKAAAAAB65masAAAE4ElEQVRYCe1Xb2hbVRS/56ZdJ8JExoSJgkPqn7a2NUkRZTKTdCStKFSLFB3i/DfRMRW/6Bz6YdNOkTGn25wDBxsIzlHRjaSbScqGfrFJunR0MqdiVxW1Ci1DWdq+e/zd9/ZKlvU1L0m/KLm0Ofeee87v/u65/84TolqqEahG4L8dAVoo+v2J1JMsxEvAWypIbOkI+ncsBPaCEOxPpu5lFoeZ2cQjIsZfVyTY9nmlJGWlAJqUYt5qkiN6F+TeMXWKem3ClYxRcQSjifR9gtUXIPZNR8h/hyYTSwx+jYjeRVI+2BH09VVCsOIIEqtXNAEs6Zs2EZA166ysPltfjqwogrGBwXvYEAMgdDoS9DVB4pxYJZZIZbHEzdLjWR0JeOO2vlRZWQQVWdETcms+OZMEy14tEcWNpZLKty8rgv0nUst5ikIs1AEQ+2mx9NUHAjSTD4zoefqT6TOQN0qSj1PNonh41W1j+TZu6kUJHjs+VG9Ms49ItWLjtwL0dhZ8jQ1Okp7DnbfLbufLWDL9NCK4Z1ZHNEGCs9ixwxh4GPpMJOTPzPbPUXEkeOyrzLVGzvgYpFZd6kcKC/c9dEOI3snFcun2QGDFhUttrFb07Nk6OTrxPAtqZuIWDHYL8GoKbFN15OkOhbyjBXqzWWg8a2Pk1PsmOXPW4hBehyEh5ZC82jMcbmn5e9ZwnkpnfX0O3W/bJiMjI4t++WOqQfFMM7PEavAabAF/TqjtsOmy7fKlI0Es453aUAq5IRLyHsh3Krfe2Ng4Bd+TF//3x+JpLC9r7DYnTOdTzOJny8nwOjlXrreCQMy/OmE5EvQIgeuBlGLxAu60TU4A5eqBuRmr9Cz8DZzyl51wHAmG29u+FB56VANgn2yOJgffcAIpVR9Npt8C5iYiMSOlfDgc8iWdMBxPse0QjQ9247TiNHMtCdrW0e7XKVXZJZZIb2NWLwJzGu9jT7G3uihBzSSWzNwvlDqIJakDyV2RkG89Bph91tywxQQJODvwtKzH1pkCue7OkO9wMV9XBC2S6TBm/plgcQWylHWY+YfFwPP7+xPptYrVR1jWC1J4HgiHvLH8fqe64x4sdACho4LpU60noX4v7C/WJinGtQ0u7T635LS9a4LaGLNv1LKWPfouK6nIWtZPm8CVcmspjq4JDgxwDabfBJYTTs/SfAOvXuk/p31BsQH7EbeYu+KaYI6zN1uHRD/25RVs+FMaI34ic5NbBMenrhBAkdFq6pjmJJhKpWr/nBRP4LNJLlsi9vr9/ulCDKzAKejuVko0Q357Wf8cCtcRJEO1aH+dweTj6OXC3fbY+ASfwcfTbla8c3xSfKd1ly+ltQ8NVpqgq+KaICLTpBHxPXnOlEhHYvFMD56s07h+9uFSXAH9j5jADyB2g9bhc3QESetDaFvXmRRj2hcgDaZ08eP+Hkyk+jBQF07ycTgdQlK4zjw0GATtMaRiW5Yt4X3nz/s4pzJrkW2/hnTtOs0BpLOw+QDtR7AHV0L1SWd7W4/uK1Zc70EmeUSw0aVzRETLSmJJ/IbBe/n6q/ZczP3s8fYiWd0vRyefge1GTKwFcrfdiW16xK4Xk64jqIGiicFXEY+nBPM4XpODiNhOHIZ/5hvkaDZ7pfpregOivQYkl0sS70WC/tfn86n2VSNQjcD/KQL/Asl/9EQxrKlwAAAAAElFTkSuQmCC);
+}
+
+.football-score-item-operation .collect-hollow:hover {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAABSFJREFUWAntV21M1VUYP+d/eVFgS2K8WG3EiJeIgAytthq4pFxmRTJljjFWac5YL/NLkK0PltjWXNnUOT+4paOBDiQpokiyWTN0XC4OQ97kxUBeJBKBC9z/8/Q71113Y/de/tzLlxoHLufcc87zO7/zPL9znoMQS2XJA0se+G97QC4W/anu+jcE0S5mESaYPw56aN2BxcBeFILW7rMbmPgMM0t8FC/GT3ZwXFaVryQ1XwEUKUFin70W8gvs+DMiksRUcqfP1xV8tLf2/LxxorOOJzvrfndATbTX/jreWsPjbTWvOvq8rX33IOlF0JxgjffeJcG8VwWadC662+dlwycNTl2rzyTdVg+9XcGhSJZS2gWouNxqrbEIphRizlqR9GKdl/yEbx5ksnsI/tvnTE6RkSRKcHBwXGSxt+TsON4Yc/cvK6008ywRHweD7qBY/zgp19qcsXBATLdavr1KgmIFydcCZUBd0KPP9znPMdKeN8TcdyFuhmceZ9bTBHEaQvYYNBcBAqhYSE17Kzh23SFXi421VG9noiN2jarrh8UY2hYhRTMzNZt00bgifVOjK1tHn1uC3Hv+vllJpaRThiKi0NUvpA+OogN/zFioKVjz+1zGrLU6AJ1rbv8u8O/p2XeYRAoIpSLciUS6nwICyp2pzJf8Taac0FWbepxtHW23BKf7zlXgfsvGjsfgq1MANZPQzMuXhTbLqNQJB8BCam5pCRibaUvSmRXhNHzyoNNwbPR05Oot2a6w3BPsOTcAgChNyvyA6ExobfHLSENZHsgeh0P/jHwy9wFXK3g4xXxdhRYhWeXKcDH6dCGeQnQQedHvDs8tQSikWCKJQSrvTnX9tNsdgLf9Qw1leyCfnbg5wZPed4fjluCy6MwfpZD50J6O3LpnoqPuE3cgC+0fvlj2KQ7ZbkTIRhpvjXpi61l3GG416DCY7KrLYZ1LEQh/+HN/SML6XY4xb+rBi2X7cfW8JwXP4o7KjVyTW+EJZ16Cynii/YeXQLAcJy4QHj0UEr++cG7m8LSIGoO35PClkwdArhCam0GuyYlas+XMfHZuQ+xsGBz33DdCaC9jmSmIcuft1u+3OY8baY82niqAVApB1KpJ8YoRcgrXEEE1MSQuqxYePAlX4NTJQdW3kEI2MYwNwnGiImJ1bo1RW8MEFSCoPaKuHn/Sm4wu4JhnMjHSGxCIH3b0GakNE2Su98OpToZox5YnbegxAu485970zb3KFn1JzOUm5zFPbcMEb3dMJ0BDgfCBxROgpzEicRnZKXDgAsV7muc8hsRtrODRkGbXHwuXBFXOHzF3vy5JamEi+qhMT5+diywlXcYhe8ZEthSM/TF33NV3wx5kXU+1A7D4l/6gK9OIubJgxHztKvR1mIR+cIg624YaygvmhpJZa1abtAldETRUDBPECUlGiIU0iV6FDGLaqKUq92ZT5RUm/RhePjHo7sJAJ0YfRA4/NtRgaxloKN2MuZCfemVzn/0gs0xS342UhRC0qlXwP8iHo81VhaOWSgvaX+PijceifULym+EiJjE8PSIRz9jt0Op17CcByays/7cT5v7zJ3Yg7Rapk4z500bIqTmGNYhFqwGu3mwZ8E6G/dJhvoFkXxJ2T9ARGfeC86JH8Vj9avDmXztAphicUvF/8mFlg3sQe9GqjRK0u97o5FHL6Q/gsW0gOox3Ynmo7n9Qpm+c9GR/w1IbTOODb4NkHry6Einyy/ufzv/Ik83S2JIHljzwf/LAP3I6pFNUwPXyAAAAAElFTkSuQmCC);
+}
+
+.football-score-item-operation .collect-solid {
+  background-image: url(/static/images/icon-reserve-active.png);
+}
+
+.football-score-item-operation .arrow-hollow {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8BAMAAADI0sRBAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAtUExURUdwTLm8zbi9zcjW4Le+zbe9zLe9zLi9zLe9zLe9zLe9zLe9zLe9zrvA07a8y0AaUXsAAAAOdFJOUwBQPgYih910wp6s7F4TT7nHUgAAAQxJREFUOMtjYBgFuAFL3jsU8MwBRZr9HRooIEU3PQBzWKoBHmmLd++a8Whe9+7dK9zaOd89lHs3Aad03LsDPO+e4pJlf/eGgeEcWoAhAFgGrAYbYHz3HETVvRPAKq33LgBEsb57hE2WaR/UUXGvFbBIe8O8xPluC7YE8QrGXIclOq+9WwxjWr3LRZfl7XsBD03mvhcXMCKjGQcHEhnIGnj70CKGE9W6a2gRU/cMxTbevOco0vtehoYGwjjqoaHzXqNKg1LvAgibC5ySUaSlQUKPYGEPBBtRXe7i4nLuIYQt9wbIwUxSejDpR9gjdFQaqzQ0EuuwS9+DlTtvcWRfKJiAo+SAyOItP0YBCAAApz+1i/pvJUMAAAAASUVORK5CYII=);
+}
+
+.football-score-item-operation .arrow-hollow:hover {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABsUExURUdwTPbcu/PZuPHVtPTaufLWte7UsO3Pru3Prv/rz/nfvPTZt+jIp/TZuPPUsvDTsvnevOnKqfXbuvLYt/HVs/bcvPTauerKqevNq/niwenKqPXbuufHpfbdu/LXtvDUs+vNq+7RsObEo/ffvuyYeW4AAAAZdFJOUwDehKL+cyFQQQUNV+StF88khI3tNb1in77ThYyhAAABYElEQVRIx+3WW5uCIBAGYMkjamZq6jIYUP//Py74bG2eEPRu1++qC18JZoZynCNHrJKjr0GeMl3XAXied5dBuQb7E/p8Qk97e2e+8cr9uvCLGdOu/CeCC4QKvNHe1FndNml87vqDPm/RrpRJImvk2ttCWcdJZH1PttaXX7lWH+qVvppJLff7Q3zZWbWNTeBtpWZMhOY28gA+NnpiQkSmtpK2GByeEGVlONQlwKg8jeCl0UAFCOA8KbrgabBuM2XxtN04v2RrNr4AzLUzbqWO14fhNvtM3BLSYv0wACy9P74Q4mL9MCzvTOlG29BIcypZSulym6sCn1Qm3VhdVRpK00WM3jf0qNAuUaFUh8PydbmzQTdWL0pTzYTgIFdJGBs8FBKSBH0MrqRoiiPzkdyFhRhhugPT/4gfO/DDBnO+Cw9Gz7fBGef8PUf0oZIZY8cd28bityq+pp84vW78c3HkyDcOdCjQ8CrPmQAAAABJRU5ErkJggg==);
+}
+
+.football-score-item-operation .arrow-solid {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAMAAAANIilAAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAABCUExURUdwTPDVs+zOrevMrPzevO3PrfTWtvPZt/LWs+rKqfPYtvjgv/DSsfHVtOzNrPPYt+7SsPXcu+rLqfjfvuXDoejIp/hoeCYAAAANdFJOUwCoc8AIkBhDJeDi6F/dI+x8AAABWUlEQVRIx+2W266DIBBFlWoF6wWs8/+/ergz2oCMbydxx7dmZSFzsU3z5MmtdP3na6NM1rHvCHCL0VU/bT37xqxGdd7V8HAQ68zzQISRmAor5KXC6htZIybBgVUOnSXNjLU0M6qR9UpJhBXyzkQYnVmSzenMZPjkrYO5zYRZSy+T/aHU4cPn2JOJtdm2TeRP4FhUI39mS282Ig8r01kZr6EB8jBL3jV5lygGAFbYILZEKvQGEm9O3Jd2V6vCDEbvIuOZobyNutepOSJq2NfFHuyEY2UUh4u+ZvXyG+dUpHjNxisqlqCjQ32lvipfpKoFyseD19+V4HWfCy7NGy/usvz7Aq+eKnmoL2i4fiQNjcRAYptmkqitACbad5LhIjHqV7b36EVDl2hz5husHrGaYcgPSV1D5/5cCNHfZP9PuMC9YbIfUhwthofwl913dmVO3jO6C948eULKH7b9NLnrKefYAAAAAElFTkSuQmCC);
+}
+
+.football-score-item-operation .statics-icon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAKKADAAQAAAABAAAAKAAAAAB65masAAAB+0lEQVRYCe1XPUsDQRCd2YuxERS1EVSwshARiWhhdSDEFP4I/ReCCCG/wMJGxFoQLGMETYiIjfEjYKGdhYJipWBhzO04hwmEy613m/OKwG5z2TfzZl7eLbu3AGYYB4wD3e0ARpV/XK5OSOc7IxCKaXvuPmo9Lz/hBXTnTr22DQQZCXDJ3HldflC+CEoIiiNgn5tDjWdQvm48skDdhrr5RqCuY9782Bw8KlYnC2eVEW9D3XksAvPF6zWStXtZgydXqK6o1vxYBCI5479NiOs7o60NdX/HIlBXxF/5kTdqv+LIg4jaQoxZhdOrHCIMJKg3u7Q0/dqW5AFCC8yfVDa58CIIyGXsuXNPnVDTQvlmnoDWXe11+Hpg0lYQMbRAPiuybmHhwBMX7UigJR1Rbyji1WkFiXPjsaxBfpXt7zeMGp+cWAT69OkYMgI7tq5BNA4aB6M6EJWvvQZJoO8ex6eMPy4lX1f8Rri9MvxJgrDBV8AFQtxtbYcotoDkBxDuN3HEngM+zKYA4V2O9V80cRpK3uJbbQcQB5MkDpt4Vz+V9+JSqTL8JXGFSGovAx1H0BLPy3aqoOIoBeZPL/d4Va2qiP+JW1ZyOm3P3PnVVLrDgXc/QgyYw58sn6q6Sgfdj8vjYiUlhVD+CVVRHRxBvGTs2Ucdjsk1DhgHusmBH9xOhKPQ4zFgAAAAAElFTkSuQmCC);
+}
+
+.football-score-item-operation .statics-icon:hover {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAKKADAAQAAAABAAAAKAAAAAB65masAAADk0lEQVRYCe1Wv2sUQRSe2b0QIhFEIxgRIVhYSCohoqksLFKItYWC/heCCCF/QQobEWtBiI3EVBFBbCxiIfFSmSKCCgo5TCTezYzfezOzOzvZy+1lDRK5Ydl5+35++82b2RViMAYMDBg43AzIuvDN+uuJdmJmjDLLwxNXm3XzxfGNWNHv829hHmqlZ4zR7xA71W98L/+kl0MvuzZmVBgjsBSjvXz3Y6/NoDBaAKQgkAcxajPIoA4IHOWuDdA49g4KY22A9Ja8uBHCVvPl+a3VpXGy1xm1Afr+MxYmY2k1F+9qpZod094goP8UIBX3y+yB4PksbRpciVadM16/n7k2g0YrCzCsri1oBt4JDf3Lf+GYEXQGAhFQuYFlt18o7sv8YwXA6feVhTmjzbGR4aHZ0ckbX31Mt7kywF+flh9oraZB+dzIuWtvwoTMlI7OQYCj/kxFTuGPledTWut7tPbbOztryDEf5imTKwM0Ws/SPgCODSTKAaIYA4yysw42S681SmlcSyFGyTQKKX2sDtABkcFupYwAzgBlSKBSwBcqXG2QCV4RQ5/GEnsJxOqbhAqWFWWUJcWcf0dFVeGad2VkK3msziCCmZV8L3A6zxT+ZrL06DPLD79QDqeNfiR/8k38amdR5UJlBj2QHIZNSFC8rVjC6/NNYu385wMxzlSM9k+VGQQKB6S4nPSG6DiC6XNitn1GwGVOINup/2wnRoYgOhT7YxAF4xfHz6otTDY3sMJdWCUH+OWuPqTr3DeDRaZsQWZlFyEeSNHA7UAAg57tig6G/hjcK6DQUkQhLoDohC3oZAJZcN8DYXUGkYTPPJy2YT4qxr3GkJwlWOKUtnQ22oSa/cFMIU/mEgmVASLtfSzWJSGTx2EOFJpHpZaU8qnXJ0PymWmLC4C2OXbi6FuvN0dOvhc/vz0CtuNCNha8/lDPxQ4OXqW19mpMmO3raNNE4JcKF0a+WsoqcMZYvSIh+Grgx8JmC+15uLXhLhP5+fSVW0uZIhK6A/y4+ARNfod2KO88CqTmdi1F/WhV9szLZOos7jPYIdNG8fE8Z50HgQ5JTI1UTp6avv2BE0a3rj0ojd5EnWxQId/WYUH2oTr8IuROL0SgvGxT2AMaMlFCNgdOCqlEQ2xZr933rgwCRNpafXFRyBT7AOcDNiANe1IUHljfJgenZgXf3LniplxvJVKnafpl/PLN9dg2eB4wMGDgf2HgD2ba/lkIbzh/AAAAAElFTkSuQmCC);
+}
+
+.football-score-item-teamRank .team-info {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.football-score-item-teamRank .team-info.score-item-goal-left,
+.football-score-item-teamRank .team-info.score-item-goal-right {
+  background-color: rgba(255, 218, 158, 0.3);
+}
+
+.football-score-item-teamRank .team-info.score-item-goal-left .score-item-ball-left,
+.football-score-item-teamRank .team-info.score-item-goal-left .score-item-ball-right,
+.football-score-item-teamRank .team-info.score-item-goal-right .score-item-ball-left,
+.football-score-item-teamRank .team-info.score-item-goal-right .score-item-ball-right {
+  width: 14px;
+  display: block;
+  transition: all 3s linear;
+}
+
+.football-score-item-teamRank .team-info .score-item-ball-right {
+  display: none;
+  margin-left: 6px;
+  animation: rotate 1s linear infinite;
+}
+
+.football-score-item-teamRank .team-info .score-item-ball-left {
+  display: none;
+  margin-right: 6px;
+  animation: rotate 1s linear infinite;
+}
+
+.football-score-item-teamRank .team-info .red-card {
+  background-color: #ff5d5d;
+}
+
+.football-score-item-teamRank .team-info .red-card,
+.football-score-item-teamRank .team-info .yellow-card {
+  width: 12.06px;
+  height: 16.87px;
+  line-height: 16.87px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  transform: scale(0.83);
+  position: relative;
+  top: 1px;
+}
+
+.football-score-item-teamRank .team-info .yellow-card {
+  background-color: #ffa800;
+}
+
+.football-score-item-teamRank .team-info .rank {
+  font-size: 12px;
+  transform: scale(0.83);
+  font-weight: 400;
+  color: #9197ad;
+}
+
+.football-score-item-teamRank .team-info .name {
+  max-width: 100px;
+  color: #333;
+}
+
+.football-score-item-teamRank .host-container {
+  justify-content: flex-end;
+  padding-right: 10px;
+}
+
+.football-score-item-teamRank .host-container .card,
+.football-score-item-teamRank .host-container .rank {
+  margin-right: 2px;
+}
+
+.football-score-item-teamRank .guest-container {
+  padding-left: 10px;
+}
+
+.football-score-item-teamRank .guest-container .card {
+  margin-left: 3px;
+}
+
+.football-score-item-teamRank .guest-container .rank {
+  margin-left: 2px;
+}
+
+.football-score-item-teamRank .vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ff2d2d;
+}
+
+.basketball-team-statistic-item {
+  width: 100%;
+  // margin-bottom: 30px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.basketball-team-statistic-item .skill-title {
+  width: 100%;
+  height: 55px;
+  line-height: 55px;
+  background-color: var(--el-table-background-color);
+  color: var(--el-table-text-color);
+}
+
+.basketball-team-statistic-item .skill-title .title-item {
+  float: left;
+  width: 38px;
+}
+
+.basketball-team-statistic-item .skill-title .title-item .title-item-logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 1px solid #dcdcdc;
+}
+
+.basketball-team-statistic-item .skill-title .width98 {
+  width: 84px;
+  text-align: left;
+}
+
+.basketball-team-statistic-item .skill-content {
+  color: var(--el-table-primary-color);
+}
+
+.basketball-team-statistic-item .skill-content .content-row {
+  overflow: hidden;
+  position: relative;
+  height: 48px;
+  line-height: 48px;
+  width: 100%;
+}
+
+.basketball-team-statistic-item .skill-content .content-row .content-row-item {
+  float: left;
+  width: 38px;
+  height: 48px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.basketball-team-statistic-item .skill-content .content-row .width98 {
+  width: 84px;
+  text-align: left;
+}
+
+.basketball-team-statistic-item .skill-content .content-row .total-statistic {
+  width: 120px;
+  color: #333;
+  font-weight: 700;
+}
+
+.basketball-team-statistic-item .skill-content .content-row:nth-child(2n) {
+  // background-color: #f7f7f8;
+}
+
+.statistic-match-container .statistic-match-wrap {
+  padding-right: 10px;
+}
+
+.statistic-match-container .live-match-wrap {
+  padding-top: 20px;
+}
+
+.statistic-match-container .ant-tabs-nav {
+  margin: 0;
+  box-shadow: 0 0.5px 0 0 #ddd;
+}
+
+.statistic-match-container .ant-tabs-nav .ant-tabs-nav-wrap {
+  background: #f6f7f9;
+}
+
+.statistic-match-container .ant-tabs-nav .ant-tabs-ink-bar {
+  display: none;
+}
+
+.statistic-match-container .ant-tabs-nav .ant-tabs-nav-list {
+  width: 100%;
+}
+
+.statistic-match-container .ant-tabs-nav .ant-tabs-nav-list .ant-tabs-tab {
+  flex: 1;
+  margin: 0;
+  color: #959db0;
+  padding: 9px 0;
+}
+
+.statistic-match-container .ant-tabs-nav .ant-tabs-nav-list .ant-tabs-tab .ant-tabs-tab-btn {
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+
+.statistic-match-container .ant-tabs-nav .ant-tabs-nav-list .ant-tabs-tab-active {
+  position: relative;
+  color: #d8ad66;
+  text-shadow: 0 0 0.25px currentColor;
+}
+
+.statistic-match-container .ant-tabs-nav .ant-tabs-nav-list .ant-tabs-tab-active:after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  margin-left: -5px;
+  width: 9px;
+  height: 6px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAMCAMAAABYzB2OAAAAWlBMVEUAAADvzZLw1rjlv5PZqW3tz6/huonWpGTqyqb03MLnxZ3cr3jz27znwpjbqm3ftIDUnlvSnFvftIDTnVrVomPcrnbZqGzes3/nxJzkv5LhuYjqyqXhuYnsz67bacdMAAAAE3RSTlMACvX19dXV1aBgYGAqKiqgoKCfPkq9sAAAAFVJREFUCNddzEcWwBAAAFESvaU34f7XjMgj+MtZDEg4Bw3VdaouEHuPYZXYHbCyiDMSf9H9FfU6j4hz1tmApN1wZPNX5FaQbzFoLyATRnStUAjGpTE9ugYI7ff76AAAAAAASUVORK5CYII=) no-repeat;
+  background-size: contain;
+}
+
+.statistic-match-container .ant-tabs-nav .ant-tabs-nav-operations {
+  display: none;
+}
+
+.flag_score_gaming_0 .football-league-name-container .league-name,
+.flag_score_gaming_1 .football-league-name-container .league-name,
+.flag_score_gaming_2 .football-league-name-container .league-name,
+.flag_score_gaming_3 .football-league-name-container .league-name {
+  width: auto;
+  max-width: 110px;
+}
+
+.score-left-nav-filter-wrap .score-left-nav-filter-item .score-left-nav-filter-item-icon.left-nav-guanzhu {
+  background-image: url(/static/images/icon-reserve.png);
+}
+
+.score-left-nav-filter-wrap .score-left-nav-filter-item:hover .score-left-nav-filter-item-icon.left-nav-guanzhu {
+  background-image: url(/static/images/icon-reserve-active.png);
+}
+
+
+.load-more {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 35px;
+  cursor: pointer;
+  margin-bottom: 50px;
+  color: #666;
+}

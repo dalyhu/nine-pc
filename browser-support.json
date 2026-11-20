@@ -1,0 +1,8 @@
+{
+  "_comment": "浏览器支持下限的唯一配置，被 vite.config.ts（polyfill、语法降级、兜底页显示的版本）读取。改之前先看 vite.config.ts 里的说明：这组版本是 index.html 兼容检测的判断边界，要一起核对",
+  "safari": "13.1",
+  "ios": "13.4",
+  "chrome": "80",
+  "edge": "80",
+  "firefox": "74"
+}
